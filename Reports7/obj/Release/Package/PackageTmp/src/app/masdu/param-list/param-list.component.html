@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row" style="margin-left:1rem;margin-top:1rem;margin-right:1rem">
+    <div class="container1">
+      <p style="padding-top:8px;">Параметры</p>
+    </div>
+  </div>
+  <br />
+  <div class="row" style="margin-left:5px">
+    <div style="margin-left:10px">
+      <button pButton *ngIf="loadingExcel==false" label="Выгрузить в Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет"></button>
+      <button pButton *ngIf="loadingExcel==true" [disabled]="true" label="Выгрузить в Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </div>
+  </div>
+
+  <div class="row" style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-table [loading]="loading" [value]="tableValue" [scrollable]="true" scrollHeight="700px" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>№ п/п</th>
+          <th>Описание параметра</th>
+          <th>Тег СОДУ</th>
+          <th>Идентификатор М АСДУ ЕСГ</th>
+          <th>Значение</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr [ngClass]="{'select_itog': val.isItog}">
+          <td [ngClass]="{'select_itog': val.isItog}">{{rowIndex + 1}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.paramDescription}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.tagSODU}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.masduId}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.value}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>
+
+
+

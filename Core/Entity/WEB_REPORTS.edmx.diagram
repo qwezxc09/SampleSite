@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4443018111fe4e4bbce54e8d442f899c" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AGR_nsi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AsoduDataKc" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AsoduDataLPU" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AsoduManualTags" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AsoduStatistic" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.AsoduStatisticNew" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Deleted_nsi_obj" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Events_history" Width="1.5" PointX="5.25" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.IasInfo" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Interval_nsi" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.IusTags" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.KC_nsi" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.KS_nsi" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.LPU_nsi" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Quality_types" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.SauType_nsi" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Telemehanica_levels" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Telemehanica_types" Width="1.5" PointX="3" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.User" Width="1.5" PointX="3" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.ZAR_NSI" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.ASDU_ESG_1" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.ASDU_ESG_1_old" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.v_ASDU_ESG_LPU" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.v_paramASDU_ESG" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.v_SessionList" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.v_SessionList_old" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.Справочник_IUSTags" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_Interval_nsi_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_KC_nsi_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_KS_nsi_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_LPU_nsi_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_Telemehanica_levels_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_Telemehanica_types_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_User_Deleted_nsi_obj" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_Events_history_User" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_IusTags_Telemehanica_levels" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_KC_nsi_KS_nsi" ManuallyRouted="false" />
+        <AssociationConnector Association="WEB_REPORTSModel.FK_KS_nsi_LPU_nsi" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.ZAR_STATES_ALL" Width="1.5" PointX="8.375" PointY="12.75" />
+        <EntityTypeShape EntityType="WEB_REPORTSModel.ZAR_NSI_WEB" Width="1.5" PointX="10.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

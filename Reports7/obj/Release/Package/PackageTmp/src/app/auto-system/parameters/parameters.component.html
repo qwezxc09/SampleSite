@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <br />
+  <div class="p-grid p-justify-start" style="margin-left:10px">
+    <div style="margin-left:10px">
+      <p-dropdown [options]="lpus" scrollHeight="350px" [(ngModel)]="selectedLpu" optionLabel="title" placeholder="Все ЛПУ"></p-dropdown>
+    </div>
+    <div style="margin-left:10px">
+      <p-dropdown [options]="kss" scrollHeight="350px" [(ngModel)]="selectedKS" optionLabel="title" placeholder="Все КС"></p-dropdown>
+    </div>
+    <div style="margin-left:10px">
+      <p-dropdown [options]="levels" scrollHeight="350px" [(ngModel)]="selectedLevel" optionLabel="title" placeholder="Все уровни автоматизации"></p-dropdown>
+    </div>
+    <div style="margin-left:10px">
+      <p-dropdown [options]="types" scrollHeight="350px" [(ngModel)]="selectedType" optionLabel="title" placeholder="Все типы систем"></p-dropdown>
+    </div>
+    <div style="margin-left:10px">
+      <span class="p-buttonset">
+        <button pButton pRipple label="Очистить фильтр" icon="pi pi-filter-slash" style="background-color:deepskyblue" (click)="clearFilters()" pTooltip="Очистить фильтр"></button>
+        <button pButton pRipple *ngIf="(loadingLpu&&loadingKs&&loadingType&&loadingLevel)==false" label="Сформировать" icon="pi pi-check" iconPos="left" (click)="createReport()" pTooltip="Сформировать отчет"></button>
+        <button pButton *ngIf="(loadingLpu&&loadingKs&&loadingType&&loadingLevel)==true" [disabled]="true" label="Сформировать" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+        <!--<button pButton pRipple label="Excel" icon="pi pi-file-excel" iconPos="left"></button>-->
+        <button pButton *ngIf="(loadingExcel||(loadingLpu&&loadingKs&&loadingType&&loadingLevel))==false" label="Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет"></button>
+        <button pButton *ngIf="(loadingExcel||(loadingLpu&&loadingKs&&loadingType&&loadingLevel))==true" [disabled]="true" label="Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+      </span>
+    </div>
+  </div>
+
+  <div class="ui-g" style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+    <p-table [loading]="loading" [value]="serverValue.tableValue" [style]="{width:'100%'}" [scrollable]="true" scrollHeight="700px" styleClass="p-datatable-gridlines">
+      <!--<colgroup>
+    <col style="width:50px">
+    <col style="width:150px">
+    <col style="width:150px">
+    <col style="width:70px">
+    <col style="width:150px">
+    <col style="width:80px">
+    <col style="width:70px">
+    <col style="width:150px">
+  </colgroup>-->
+      <ng-template pTemplate="header">
+        <tr>
+          <th>№ п/п</th>
+          <th pSortableColumn="LpuTitle">Наименование ЛПУ<p-sortIcon field="LpuTitle"></p-sortIcon></th>
+          <th pSortableColumn="KsTitle">Наименование КС<p-sortIcon field="KsTitle"></p-sortIcon></th>
+          <th pSortableColumn="LevelTitle">Уровень<p-sortIcon field="LevelTitle"></p-sortIcon></th>
+          <th pSortableColumn="TelemehanicaTitle">Система телемеханики<p-sortIcon field="TelemehanicaTitle"></p-sortIcon></th>
+          <th pSortableColumn="KcTitle">Цех<p-sortIcon field="kcTitle"></p-sortIcon></th>
+          <th pSortableColumn="AgrTitle">Агрегат<p-sortIcon field="AgrTitle"></p-sortIcon></th>
+          <th pSortableColumn="TagCount">Количество тегов<p-sortIcon field="TagCount"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr [ngClass]="{'select_itog': val.isItog}">
+          <td [ngClass]="{'select_itog': val.isItog}">{{rowIndex+1}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.LpuTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.KsTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.LevelTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.TelemehanicaTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.KcTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.AgrTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.TagCount}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <tr *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{serverValue.tableValue.length + 1}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.LpuTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.KsTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.LevelTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.TelemehanicaTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.KcTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.AgrTitle}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.TagCount}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>
+
+

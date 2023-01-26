@@ -1,0 +1,170 @@
+<div class="container-fluid">
+  <br />
+  <p-messages [(value)]="msgs"></p-messages>
+  <div class="p-grid p-justify-start" style="margin-left:5px">
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-dropdown [options]="lpus" scrollHeight="350px" [(ngModel)]="selectedLpu" [filter]="true" optionLabel="NsiValue" placeholder="Выберите ЛПУ" (onChange)="changeLPU()"></p-dropdown>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-dropdown [options]="kps" scrollHeight="350px" [(ngModel)]="selectedKp" [filter]="true" optionLabel="NsiValue" placeholder="Выберите КП"></p-dropdown>
+    </div>
+
+    <span class="p-buttonset" style="margin-left:10px;margin-top:5px;">
+      <button pButton pRipple icon="pi pi-filter-slash" style="background-color:deepskyblue" (click)="clearFilters()"></button>
+      <button pButton pRipple *ngIf="(loadingLpu||loadingKp)==false" label="Показать" icon="pi pi-check" iconPos="left" (click)="getNSIData()" pTooltip="Показать данные справочников" [disabled]="(dateStart > dateEnd)"></button>
+      <button pButton *ngIf="(loadingLpu||loadingKp)==true" [disabled]="true" label="Показать" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+      <button pButton *ngIf="(loadingSave)==false" [disabled]="nsiList.length===0" pRipple label="Сохранить" icon="pi pi-save" style="background-color:deepskyblue" (click)="displaySaveConfirm()"></button>
+      <button pButton *ngIf="(loadingSave==true)" [disabled]="true" label="Сохранить" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+      <button pButton pRipple [disabled]="nsiList.length===0" label="Добавить строку" icon="pi pi-plus" (click)="addNsiItem()"></button>
+      <button pButton pRipple [disabled]="selectedItem === null" style="background-color:deepskyblue" label="Удалить строку" icon="pi pi-trash" (click)="confirmDelete()"></button>
+
+    </span>
+  </div>
+
+  <div class="row" #divap style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+
+    <p-table [autoLayout]="true" [responsive]="true" [paginator]="true" [rowsPerPageOptions]="[15,40,60,80,100]" [rows]="15" [loading]="loading" [value]="nsiList" selectionMode="single" [(selection)]="selectedItem" (onRowSelect)="changeNsiItem()" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="2">№ п/п</th>
+          <th pSortableColumn="LPU_Name" rowspan="2">Наименование ЛПУ<p-sortIcon field="LPU_Name"></p-sortIcon></th>
+          <th pSortableColumn="KP_Name" rowspan="2">Наименование КП<p-sortIcon field="KP_Name"></p-sortIcon></th>
+          <th colspan="5" style="text-align: center;">Трубопроводная арматура</th>
+          <th rowspan="2" style="text-align: center;">Комменатрий</th>
+        </tr>
+        <tr>
+          <th pSortableColumn="kodZAR_SLTM">Номер крана в СЛТМ<p-sortIcon field="kodZAR_SLTM"></p-sortIcon></th>
+          <th pSortableColumn="kodZAR_SODU">Номер крана в СОДУ<p-sortIcon field="kodZAR_SODU"></p-sortIcon></th>
+          <th pSortableColumn="Tagname">Имя тэга в СОДУ<p-sortIcon field="Tagname"></p-sortIcon></th>
+          <th pSortableColumn="ShortZAR_Name">Имя крана (кор.)<p-sortIcon field="ShortZAR_Name"></p-sortIcon></th>
+          <th pSortableColumn="LongZAR_Name">Имя крана (полн.)<p-sortIcon field="LongZAR_Name"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-editing="editing" let-rowIndex="rowIndex">
+        <tr *ngIf="!val.Deleted" [pEditableRow]="val" [pSelectableRow]="val">
+          <td>{{rowIndex + 1}}</td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.LPU_Name">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.LPU_Name}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.KP_Name">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.KP_Name}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.kodZAR_SLTM">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.kodZAR_SLTM}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.kodZAR_SODU">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.kodZAR_SODU}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.Tagname">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.Tagname}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.ShortZAR_Name">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.ShortZAR_Name}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.LongZAR_Name">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.LongZAR_Name}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn style="word-wrap:break-word">
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input class="color_mode" type="text" [(ngModel)]="val.Comment">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{val.Comment}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p-confirmDialog #cd icon="pi pi-exclamation-triangle">
+      <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="Нет" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Да" (click)="cd.accept()"></button>
+      </p-footer>
+    </p-confirmDialog>
+
+    <p-dialog header="Введите учетную запись администратора" [(visible)]="displaySaveAccept" [modal]="true" [width]="600" [height]="Auto" #modalwin>
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText [(ngModel)]="userName" placeholder="Имя пользователя">
+          </div>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input type="password" placeholder="Пароль" [(ngModel)]="password" />
+          </div>
+        </div>
+
+      </div>
+      <p-footer>
+        <button pButton label="Сохранить" [disabled]="password==null||userName==null" iconPos="right" icon="pi pi-save" (click)="saveNsiData()"></button>
+        <button pButton label="Отмена" iconPos="right" (click)="cancelSave()"></button>
+      </p-footer>
+    </p-dialog>
+
+  </div>
+</div>

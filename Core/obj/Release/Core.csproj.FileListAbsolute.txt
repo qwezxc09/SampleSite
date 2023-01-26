@@ -1,0 +1,48 @@
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\Core.dll.config
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\Core.dll
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\Core.pdb
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EntityFramework.dll
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EPPlus.dll
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EntityFramework.xml
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\EPPlus.xml
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\vladp\source\repos\Reports7\Core\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\vladp\source\repos\Reports7\Core\obj\Release\Core.csprojAssemblyReference.cache
+C:\Users\vladp\source\repos\Reports7\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
+C:\Users\vladp\source\repos\Reports7\Core\obj\Release\Core.csproj.CopyComplete
+C:\Users\vladp\source\repos\Reports7\Core\obj\Release\Core.dll
+C:\Users\vladp\source\repos\Reports7\Core\obj\Release\Core.pdb
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\Core.dll.config
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\Core.dll
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\Core.pdb
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EntityFramework.dll
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EPPlus.dll
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EntityFramework.xml
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\EPPlus.xml
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\vladp\source\repos\WebReports7\Core\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\vladp\source\repos\WebReports7\Core\obj\Release\Core.csprojAssemblyReference.cache
+C:\Users\vladp\source\repos\WebReports7\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
+C:\Users\vladp\source\repos\WebReports7\Core\obj\Release\Core.csproj.CopyComplete
+C:\Users\vladp\source\repos\WebReports7\Core\obj\Release\Core.dll
+C:\Users\vladp\source\repos\WebReports7\Core\obj\Release\Core.pdb
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\Core.dll.config
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\Core.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\Core.pdb
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EntityFramework.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EPPlus.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EntityFramework.xml
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\EPPlus.xml
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\obj\Release\Core.csproj.AssemblyReference.cache
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\obj\Release\Core.csproj.CoreCompileInputs.cache
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\obj\Release\Core.csproj.CopyComplete
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\obj\Release\Core.dll
+C:\Users\vladp\Desktop\Новая папка\WEB_REPORTS_27_12_2021\WebReports7\Core\obj\Release\Core.pdb

@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <br />
+  <div class="p-grid p-justify-start" style="margin-left:5px">
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-dropdown [options]="lpus" scrollHeight="350px" [(ngModel)]="selectedLpu" [filter]="true" optionLabel="NsiValue" placeholder="Выберите ЛПУ" (onChange)="changeLPU()"></p-dropdown>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-dropdown [options]="kps" scrollHeight="350px" [(ngModel)]="selectedKp" [filter]="true" optionLabel="NsiValue" placeholder="Выберите КП"></p-dropdown>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-calendar [(ngModel)]="dateStart" [locale]="ru" [showIcon]="true" [readonlyInput]="true" inputStyleClass="dateTimeField" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-calendar [(ngModel)]="dateEnd" [locale]="ru" [showIcon]="true" inputStyleClass="dateTimeField" [readonlyInput]="true" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+
+    <span class="p-buttonset" style="margin-left:10px;margin-top:5px;">
+      <button pButton pRipple pTooltip="Очистить фильтр" icon="pi pi-filter-slash" style="background-color:deepskyblue" (click)="clearFilters()"></button>
+      <button pButton pRipple *ngIf="(loadingLpu||loadingKp)==false" label="Сформировать" icon="pi pi-check" iconPos="left" (click)="createReport()" pTooltip="Сформировать отчет" [disabled]="(dateStart > dateEnd)"></button>
+      <button pButton *ngIf="(loadingLpu||loadingKp)==true" [disabled]="true" label="Сформировать" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+      <button pButton pRipple *ngIf="showCraneFlag" label="Показать всё" icon="pi pi-check" iconPos="left" (click)="showAllCranes()" pTooltip="Показать все краны" [disabled]="filterUseFlag"></button>
+      <button pButton pRipple *ngIf="!showCraneFlag" label="Показать перестановки" icon="pi pi-check" iconPos="left" (click)="showOnlyRearrangedCranes()" pTooltip="Показать только перестановки кранов" [disabled]="filterUseFlag"></button>
+      <button pButton *ngIf="(loadingExcel||(loadingLpu&&loadingKp))==false" label="Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет" [disabled]="(dateStart > dateEnd)"></button>
+      <button pButton *ngIf="(loadingExcel||(loadingLpu&&loadingKp))==true" [disabled]="true" label="Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </span>
+  </div>
+
+  <div class="row" style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+
+    <p-table [autoLayout]="true" [responsive]="true" [paginator]="true" [rowsPerPageOptions]="[15,40,60,80,100]" [rows]="15" [loading]="loading" [value]="tableValue" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="2">№ п/п</th>
+          <th pSortableColumn="LPU_Name" rowspan="2">Наименование ЛПУ<p-sortIcon field="LPU_Name"></p-sortIcon></th>
+          <th pSortableColumn="KP_Name" rowspan="2">Наименование КП<p-sortIcon field="KP_Name"></p-sortIcon></th>
+          <th colspan="3" style="text-align: center;">Трубопроводная арматура</th>
+          <th pSortableColumn="RearrangeDate" rowspan="2">Дата перестановки<p-sortIcon field="RearrangeDate"></p-sortIcon></th>
+          <th rowspan="2">Состояние крана после перестановки (открыт/закрыт)</th>
+        </tr>
+        <tr>
+          <th pSortableColumn="kodZAR_SLTM">Номер крана в СЛТМ<p-sortIcon field="kodZAR_SLTM"></p-sortIcon></th>
+          <th pSortableColumn="kodZAR_SODU">Номер крана в СОДУ<p-sortIcon field="kodZAR_SODU"></p-sortIcon></th>
+          <th pSortableColumn="TagName">Имя тэга в СОДУ<p-sortIcon field="TagName"></p-sortIcon></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr *ngIf="(val.hasRearrange)">
+          <td>{{rowIndex + 1}}</td>
+          <td>{{val.LPU_Name}}</td>
+          <td>{{val.KP_Name}}</td>
+          <td>{{val.kodZAR_SLTM}}</td>
+          <td>{{val.kodZAR_SODU}}</td>
+          <td>{{val.TagName}}</td>
+          <td>{{val.RearrangeDateDisplay}}</td>
+          <td pTooltip="Автоматика" *ngIf="(val.isAuto)" [ngClass]="{'auto_mode': val.isAuto}">{{val.State}}</td>
+          <td pTooltip="Ручной ввод" *ngIf="(val.isManual)" [ngClass]="{'manual_mode': val.isManual}">{{val.State}}</td>
+          <td *ngIf="(val.isNoValue)">{{val.State}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>

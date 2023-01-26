@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище WEB_REPORTSModelContainer" CdmEntityContainer="WEB_REPORTSContext">
+    <EntitySetMapping Name="AGR_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AGR_nsi">
+        <MappingFragment StoreEntitySet="AGR_nsi">
+          <ScalarProperty Name="id_agr" ColumnName="id_agr" />
+          <ScalarProperty Name="kodKs" ColumnName="kodKs" />
+          <ScalarProperty Name="kodKc" ColumnName="kodKc" />
+          <ScalarProperty Name="kodAgr" ColumnName="kodAgr" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsoduDataKc">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AsoduDataKc">
+        <MappingFragment StoreEntitySet="AsoduDataKc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="OPCQuality" ColumnName="OPCQuality" />
+          <ScalarProperty Name="TagValue" ColumnName="TagValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsoduDataLPU">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AsoduDataLPU">
+        <MappingFragment StoreEntitySet="AsoduDataLPU">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="kodLPU" ColumnName="kodLPU" />
+          <ScalarProperty Name="OPCQuality" ColumnName="OPCQuality" />
+          <ScalarProperty Name="TagValue" ColumnName="TagValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsoduManualTags">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AsoduManualTags">
+        <MappingFragment StoreEntitySet="AsoduManualTags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="OPCQuality" ColumnName="OPCQuality" />
+          <ScalarProperty Name="TagValue" ColumnName="TagValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsoduStatistic">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AsoduStatistic">
+        <MappingFragment StoreEntitySet="AsoduStatistic">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kodLpu" ColumnName="kodLpu" />
+          <ScalarProperty Name="handEnterCount" ColumnName="handEnterCount" />
+          <ScalarProperty Name="handEnterAutoCount" ColumnName="handEnterAutoCount" />
+          <ScalarProperty Name="goodQualityCount" ColumnName="goodQualityCount" />
+          <ScalarProperty Name="tagCount" ColumnName="tagCount" />
+          <ScalarProperty Name="createDt" ColumnName="createDt" />
+          <ScalarProperty Name="repairCount" ColumnName="repairCount" />
+          <ScalarProperty Name="bedQualityCount" ColumnName="bedQualityCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsoduStatisticNew">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.AsoduStatisticNew">
+        <MappingFragment StoreEntitySet="AsoduStatisticNew">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kodLpu" ColumnName="kodLpu" />
+          <ScalarProperty Name="handEnterCount" ColumnName="handEnterCount" />
+          <ScalarProperty Name="handEnterAutoCount" ColumnName="handEnterAutoCount" />
+          <ScalarProperty Name="goodQualityCount" ColumnName="goodQualityCount" />
+          <ScalarProperty Name="tagCount" ColumnName="tagCount" />
+          <ScalarProperty Name="createDt" ColumnName="createDt" />
+          <ScalarProperty Name="repairCount" ColumnName="repairCount" />
+          <ScalarProperty Name="bedQualityCount" ColumnName="bedQualityCount" />
+          <ScalarProperty Name="tagCountAllInPDS" ColumnName="tagCountAllInPDS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deleted_nsi_obj">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Deleted_nsi_obj">
+        <MappingFragment StoreEntitySet="Deleted_nsi_obj">
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+          <ScalarProperty Name="deleted_date" ColumnName="deleted_date" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events_history">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Events_history">
+        <MappingFragment StoreEntitySet="Events_history">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IasInfo">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.IasInfo">
+        <MappingFragment StoreEntitySet="IasInfo">
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="LongDesc" ColumnName="LongDesc" />
+          <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+          <ScalarProperty Name="InputSystem" ColumnName="InputSystem" />
+          <ScalarProperty Name="InputSource" ColumnName="InputSource" />
+          <ScalarProperty Name="EngUnits" ColumnName="EngUnits" />
+          <ScalarProperty Name="IDObj" ColumnName="IDObj" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="SAUType" ColumnName="SAUType" />
+          <ScalarProperty Name="IDSauType" ColumnName="IDSauType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interval_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Interval_nsi">
+        <MappingFragment StoreEntitySet="Interval_nsi">
+          <ScalarProperty Name="id_interval" ColumnName="id_interval" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+          <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IusTags">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.IusTags">
+        <MappingFragment StoreEntitySet="IusTags">
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="LongDesc" ColumnName="LongDesc" />
+          <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+          <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+          <ScalarProperty Name="InputSystem" ColumnName="InputSystem" />
+          <ScalarProperty Name="InputSource" ColumnName="InputSource" />
+          <ScalarProperty Name="st108_InputSource" ColumnName="st108.InputSource" />
+          <ScalarProperty Name="st110_InputSource" ColumnName="st110.InputSource" />
+          <ScalarProperty Name="st111_InputSource" ColumnName="st111.InputSource" />
+          <ScalarProperty Name="st112_InputSource" ColumnName="st112.InputSource" />
+          <ScalarProperty Name="State_InputSource" ColumnName="State.InputSource" />
+          <ScalarProperty Name="Value_Open_InputSource" ColumnName="Value.Open.InputSource" />
+          <ScalarProperty Name="Value_Close_InputSource" ColumnName="Value.Close.InputSource" />
+          <ScalarProperty Name="Value_HiHi_Limit" ColumnName="Value.HiHi.Limit" />
+          <ScalarProperty Name="Value_Hi_Limit" ColumnName="Value.Hi.Limit" />
+          <ScalarProperty Name="Value_LoLo_Limit" ColumnName="Value.LoLo.Limit" />
+          <ScalarProperty Name="Value_Lo_Limit" ColumnName="Value.Lo.Limit" />
+          <ScalarProperty Name="IsConvert" ColumnName="IsConvert" />
+          <ScalarProperty Name="IsHand" ColumnName="IsHand" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Container" ColumnName="Container" />
+          <ScalarProperty Name="ContainedName" ColumnName="ContainedName" />
+          <ScalarProperty Name="MinEU" ColumnName="MinEU" />
+          <ScalarProperty Name="MaxEU" ColumnName="MaxEU" />
+          <ScalarProperty Name="MinRaw" ColumnName="MinRaw" />
+          <ScalarProperty Name="MaxRaw" ColumnName="MaxRaw" />
+          <ScalarProperty Name="EngUnits" ColumnName="EngUnits" />
+          <ScalarProperty Name="Scale" ColumnName="Scale" />
+          <ScalarProperty Name="id_telemehanica_types" ColumnName="id_telemehanica_types" />
+          <ScalarProperty Name="id_telemehanica_levels" ColumnName="id_telemehanica_levels" />
+          <ScalarProperty Name="kodLpu" ColumnName="kodLpu" />
+          <ScalarProperty Name="kodKs" ColumnName="kodKs" />
+          <ScalarProperty Name="kodKc" ColumnName="kodKc" />
+          <ScalarProperty Name="kodAgr" ColumnName="kodAgr" />
+          <ScalarProperty Name="IDObj" ColumnName="IDObj" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KC_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.KC_nsi">
+        <MappingFragment StoreEntitySet="KC_nsi">
+          <ScalarProperty Name="id_kc" ColumnName="id_kc" />
+          <ScalarProperty Name="id_ks" ColumnName="id_ks" />
+          <ScalarProperty Name="kodKs" ColumnName="kodKs" />
+          <ScalarProperty Name="kodKc" ColumnName="kodKc" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KS_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.KS_nsi">
+        <MappingFragment StoreEntitySet="KS_nsi">
+          <ScalarProperty Name="id_ks" ColumnName="id_ks" />
+          <ScalarProperty Name="kodks" ColumnName="kodks" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="stitle" ColumnName="stitle" />
+          <ScalarProperty Name="ks_name" ColumnName="ks_name" />
+          <ScalarProperty Name="id_lpu" ColumnName="id_lpu" />
+          <ScalarProperty Name="ks_lpu_name" ColumnName="ks_lpu_name" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LPU_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.LPU_nsi">
+        <MappingFragment StoreEntitySet="LPU_nsi">
+          <ScalarProperty Name="id_lpu" ColumnName="id_lpu" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="kodlpu_old" ColumnName="kodlpu_old" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+          <ScalarProperty Name="kodlpu_union" ColumnName="kodlpu_union" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quality_types">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Quality_types">
+        <MappingFragment StoreEntitySet="Quality_types">
+          <ScalarProperty Name="id_quality_types" ColumnName="id_quality_types" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SauType_nsi">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.SauType_nsi">
+        <MappingFragment StoreEntitySet="SauType_nsi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telemehanica_levels">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Telemehanica_levels">
+        <MappingFragment StoreEntitySet="Telemehanica_levels">
+          <ScalarProperty Name="id_telemehanica_levels" ColumnName="id_telemehanica_levels" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="template" ColumnName="template" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telemehanica_types">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Telemehanica_types">
+        <MappingFragment StoreEntitySet="Telemehanica_types">
+          <ScalarProperty Name="id_telemehanica_types" ColumnName="id_telemehanica_types" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZAR_NSI">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.ZAR_NSI">
+        <MappingFragment StoreEntitySet="ZAR_NSI">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kodLpu" ColumnName="kodLpu" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASDU_ESG_1">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.ASDU_ESG_1">
+        <MappingFragment StoreEntitySet="ASDU_ESG_1">
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASDU_ESG_1_old">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.ASDU_ESG_1_old">
+        <MappingFragment StoreEntitySet="ASDU_ESG_1_old">
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_ASDU_ESG_LPU">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.v_ASDU_ESG_LPU">
+        <MappingFragment StoreEntitySet="v_ASDU_ESG_LPU">
+          <ScalarProperty Name="LPUTitle" ColumnName="LPUTitle" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_paramASDU_ESG">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.v_paramASDU_ESG">
+        <MappingFragment StoreEntitySet="v_paramASDU_ESG">
+          <ScalarProperty Name="LPUTitle" ColumnName="LPUTitle" />
+          <ScalarProperty Name="kodLPU" ColumnName="kodLPU" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="SessionTitle" ColumnName="SessionTitle" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="FulParamName" ColumnName="FulParamName" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="ParamId" ColumnName="ParamId" />
+          <ScalarProperty Name="ParamValue" ColumnName="ParamValue" />
+          <ScalarProperty Name="ErrCategoryId" ColumnName="ErrCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_SessionList">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.v_SessionList">
+        <MappingFragment StoreEntitySet="v_SessionList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_SessionList_old">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.v_SessionList_old">
+        <MappingFragment StoreEntitySet="v_SessionList_old">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Справочник_IUSTags">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.Справочник_IUSTags">
+        <MappingFragment StoreEntitySet="Справочник_IUSTags">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="ks_lpu_name" ColumnName="ks_lpu_name" />
+          <ScalarProperty Name="kodKc" ColumnName="kodKc" />
+          <ScalarProperty Name="kodAgr" ColumnName="kodAgr" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="LongDesc" ColumnName="LongDesc" />
+          <ScalarProperty Name="ShortDesc" ColumnName="ShortDesc" />
+          <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+          <ScalarProperty Name="InputSystem" ColumnName="InputSystem" />
+          <ScalarProperty Name="InputSource" ColumnName="InputSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_data" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_data" />
+    <FunctionImportMapping FunctionImportName="get_Asodu_dataKC_modern" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_dataKC_modern" />
+    <FunctionImportMapping FunctionImportName="get_Asodu_dataLPU_modern" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_dataLPU_modern" />
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsKC" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsKC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsKC_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="KSName" ColumnName="KSName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsKC_2" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsKC_2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsKC_2_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="KSName" ColumnName="KSName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsLPU" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsLPU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsLPU_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodLPU" ColumnName="kodLPU" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsLPU_2" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsLPU_2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsLPU_2_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodLPU" ColumnName="kodLPU" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsManualTags" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsManualTags">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsManualTags_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="KSName" ColumnName="KSName" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagType" ColumnName="TagType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsManualTags_0ld" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsManualTags_0ld">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsManualTags_0ld_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="KSName" ColumnName="KSName" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="TagDescription" ColumnName="TagDescription" />
+          <ScalarProperty Name="TagType" ColumnName="TagType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_intervalsManualTags1" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_intervalsManualTags1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.get_Asodu_intervalsManualTags1_Result">
+          <ScalarProperty Name="dt1" ColumnName="dt1" />
+          <ScalarProperty Name="dt2" ColumnName="dt2" />
+          <ScalarProperty Name="TagValue1" ColumnName="TagValue1" />
+          <ScalarProperty Name="TagValue2" ColumnName="TagValue2" />
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+          <ScalarProperty Name="grpId" ColumnName="grpId" />
+          <ScalarProperty Name="LenSec" ColumnName="LenSec" />
+          <ScalarProperty Name="KSName" ColumnName="KSName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_Asodu_ManualTags" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_ManualTags" />
+    <FunctionImportMapping FunctionImportName="get_Asodu_StatisticData" FunctionName="Хранилище WEB_REPORTSModel.get_Asodu_StatisticData" />
+    <FunctionImportMapping FunctionImportName="hp_GetAsduEsg1" FunctionName="Хранилище WEB_REPORTSModel.hp_GetAsduEsg1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetAsduEsg1_Result">
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetAsduEsg1Period" FunctionName="Хранилище WEB_REPORTSModel.hp_GetAsduEsg1Period">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetAsduEsg1Period_Result">
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetAsduEsgLPU" FunctionName="Хранилище WEB_REPORTSModel.hp_GetAsduEsgLPU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetAsduEsgLPU_Result">
+          <ScalarProperty Name="LPUTitle" ColumnName="LPUTitle" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetAsduEsgLPUPeriod" FunctionName="Хранилище WEB_REPORTSModel.hp_GetAsduEsgLPUPeriod">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetAsduEsgLPUPeriod_Result">
+          <ScalarProperty Name="LPUTitle" ColumnName="LPUTitle" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="CommonCount" ColumnName="CommonCount" />
+          <ScalarProperty Name="PeredDost" ColumnName="PeredDost" />
+          <ScalarProperty Name="PeredNeDost" ColumnName="PeredNeDost" />
+          <ScalarProperty Name="Pustoe" ColumnName="Pustoe" />
+          <ScalarProperty Name="NeChislo" ColumnName="NeChislo" />
+          <ScalarProperty Name="NeVhodVInt" ColumnName="NeVhodVInt" />
+          <ScalarProperty Name="OtsutPriv" ColumnName="OtsutPriv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetDoGroupKcList" FunctionName="Хранилище WEB_REPORTSModel.hp_GetDoGroupKcList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetDoGroupKcList_Result">
+          <ScalarProperty Name="kodKS" ColumnName="kodKS" />
+          <ScalarProperty Name="KsTitle" ColumnName="KsTitle" />
+          <ScalarProperty Name="kodKC" ColumnName="kodKC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetHandEnterData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetHandEnterData" />
+    <FunctionImportMapping FunctionImportName="hp_GetLiveStatisticData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetLiveStatisticData" />
+    <FunctionImportMapping FunctionImportName="hp_GetLiveStatisticData_History" FunctionName="Хранилище WEB_REPORTSModel.hp_GetLiveStatisticData_History" />
+    <FunctionImportMapping FunctionImportName="hp_GetLiveStatisticData_Repair" FunctionName="Хранилище WEB_REPORTSModel.hp_GetLiveStatisticData_Repair" />
+    <FunctionImportMapping FunctionImportName="hp_GetLiveStatisticData_RepairNew" FunctionName="Хранилище WEB_REPORTSModel.hp_GetLiveStatisticData_RepairNew" />
+    <FunctionImportMapping FunctionImportName="hp_GetLiveTagList" FunctionName="Хранилище WEB_REPORTSModel.hp_GetLiveTagList" />
+    <FunctionImportMapping FunctionImportName="hp_GetObjTypeList" FunctionName="Хранилище WEB_REPORTSModel.hp_GetObjTypeList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetObjTypeList_Result">
+          <ScalarProperty Name="idTagType" ColumnName="idTagType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetParamAsduEsg" FunctionName="Хранилище WEB_REPORTSModel.hp_GetParamAsduEsg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetParamAsduEsg_Result">
+          <ScalarProperty Name="LPUTitle" ColumnName="LPUTitle" />
+          <ScalarProperty Name="kodLPU" ColumnName="kodLPU" />
+          <ScalarProperty Name="DTS" ColumnName="DTS" />
+          <ScalarProperty Name="SessionTitle" ColumnName="SessionTitle" />
+          <ScalarProperty Name="MsgType" ColumnName="MsgType" />
+          <ScalarProperty Name="FulParamName" ColumnName="FulParamName" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="ParamId" ColumnName="ParamId" />
+          <ScalarProperty Name="ParamValue" ColumnName="ParamValue" />
+          <ScalarProperty Name="ErrCategoryId" ColumnName="ErrCategoryId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetPeriodChartData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetPeriodChartData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetPeriodChartData_Result">
+          <ScalarProperty Name="createDt" ColumnName="createDt" />
+          <ScalarProperty Name="tagCount" ColumnName="tagCount" />
+          <ScalarProperty Name="handEnterCount" ColumnName="handEnterCount" />
+          <ScalarProperty Name="handEnterAutoCount" ColumnName="handEnterAutoCount" />
+          <ScalarProperty Name="goodQualityCount" ColumnName="goodQualityCount" />
+          <ScalarProperty Name="allgoodQualityCount" ColumnName="allgoodQualityCount" />
+          <ScalarProperty Name="repairCount" ColumnName="repairCount" />
+          <ScalarProperty Name="bedQualityCount" ColumnName="bedQualityCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetPeriodStatisticData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetPeriodStatisticData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetPeriodStatisticData_Result">
+          <ScalarProperty Name="lpuTitle" ColumnName="lpuTitle" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+          <ScalarProperty Name="tagCount" ColumnName="tagCount" />
+          <ScalarProperty Name="handEnterCount" ColumnName="handEnterCount" />
+          <ScalarProperty Name="handEnterAutoCount" ColumnName="handEnterAutoCount" />
+          <ScalarProperty Name="goodQualityCount" ColumnName="goodQualityCount" />
+          <ScalarProperty Name="repairCount" ColumnName="repairCount" />
+          <ScalarProperty Name="bedQualityCount" ColumnName="bedQualityCount" />
+          <ScalarProperty Name="tagCountAllInPDS" ColumnName="tagCountAllInPDS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetPeriodStatisticData_old" FunctionName="Хранилище WEB_REPORTSModel.hp_GetPeriodStatisticData_old">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetPeriodStatisticData_old_Result">
+          <ScalarProperty Name="lpuTitle" ColumnName="lpuTitle" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="id_deleted_nsi_obj" ColumnName="id_deleted_nsi_obj" />
+          <ScalarProperty Name="tagCount" ColumnName="tagCount" />
+          <ScalarProperty Name="handEnterCount" ColumnName="handEnterCount" />
+          <ScalarProperty Name="handEnterAutoCount" ColumnName="handEnterAutoCount" />
+          <ScalarProperty Name="goodQualityCount" ColumnName="goodQualityCount" />
+          <ScalarProperty Name="repairCount" ColumnName="repairCount" />
+          <ScalarProperty Name="bedQualityCount" ColumnName="bedQualityCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetPeriodTagList" FunctionName="Хранилище WEB_REPORTSModel.hp_GetPeriodTagList" />
+    <FunctionImportMapping FunctionImportName="hp_GetTagTypeList" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTagTypeList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetTagTypeList_Result">
+          <ScalarProperty Name="idTagType" ColumnName="idTagType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanica_SauKc" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanica_SauKc" />
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanicaConnectSystemData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemData_Result">
+          <ScalarProperty Name="ks_name" ColumnName="ks_name" />
+          <ScalarProperty Name="kcCount" ColumnName="kcCount" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="kodks" ColumnName="kodks" />
+          <ScalarProperty Name="agrCount" ColumnName="agrCount" />
+          <ScalarProperty Name="sau_kc_1" ColumnName="sau_kc_1" />
+          <ScalarProperty Name="sau_kc_2" ColumnName="sau_kc_2" />
+          <ScalarProperty Name="sau_kc_3" ColumnName="sau_kc_3" />
+          <ScalarProperty Name="sau_kc_4" ColumnName="sau_kc_4" />
+          <ScalarProperty Name="sau_kc_5" ColumnName="sau_kc_5" />
+          <ScalarProperty Name="sau_kc_6" ColumnName="sau_kc_6" />
+          <ScalarProperty Name="sau_kc_7" ColumnName="sau_kc_7" />
+          <ScalarProperty Name="sau_kc_8" ColumnName="sau_kc_8" />
+          <ScalarProperty Name="sau_kc_9" ColumnName="sau_kc_9" />
+          <ScalarProperty Name="sau_kc_10" ColumnName="sau_kc_10" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanicaConnectSystemGpaData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaData_Result">
+          <ScalarProperty Name="ks_name" ColumnName="ks_name" />
+          <ScalarProperty Name="kcCount" ColumnName="kcCount" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="kodks" ColumnName="kodks" />
+          <ScalarProperty Name="agrCount" ColumnName="agrCount" />
+          <ScalarProperty Name="sau_kc_1" ColumnName="sau_kc_1" />
+          <ScalarProperty Name="tag_kc_1" ColumnName="tag_kc_1" />
+          <ScalarProperty Name="agrcount_kc1" ColumnName="agrcount_kc1" />
+          <ScalarProperty Name="sau_kc_2" ColumnName="sau_kc_2" />
+          <ScalarProperty Name="tag_kc_2" ColumnName="tag_kc_2" />
+          <ScalarProperty Name="agrcount_kc2" ColumnName="agrcount_kc2" />
+          <ScalarProperty Name="sau_kc_3" ColumnName="sau_kc_3" />
+          <ScalarProperty Name="tag_kc_3" ColumnName="tag_kc_3" />
+          <ScalarProperty Name="agrcount_kc3" ColumnName="agrcount_kc3" />
+          <ScalarProperty Name="sau_kc_4" ColumnName="sau_kc_4" />
+          <ScalarProperty Name="tag_kc_4" ColumnName="tag_kc_4" />
+          <ScalarProperty Name="agrcount_kc4" ColumnName="agrcount_kc4" />
+          <ScalarProperty Name="sau_kc_5" ColumnName="sau_kc_5" />
+          <ScalarProperty Name="tag_kc_5" ColumnName="tag_kc_5" />
+          <ScalarProperty Name="agrcount_kc5" ColumnName="agrcount_kc5" />
+          <ScalarProperty Name="sau_kc_6" ColumnName="sau_kc_6" />
+          <ScalarProperty Name="tag_kc_6" ColumnName="tag_kc_6" />
+          <ScalarProperty Name="agrcount_kc6" ColumnName="agrcount_kc6" />
+          <ScalarProperty Name="sau_kc_7" ColumnName="sau_kc_7" />
+          <ScalarProperty Name="tag_kc_7" ColumnName="tag_kc_7" />
+          <ScalarProperty Name="agrcount_kc7" ColumnName="agrcount_kc7" />
+          <ScalarProperty Name="sau_kc_8" ColumnName="sau_kc_8" />
+          <ScalarProperty Name="tag_kc_8" ColumnName="tag_kc_8" />
+          <ScalarProperty Name="agrcount_kc8" ColumnName="agrcount_kc8" />
+          <ScalarProperty Name="sau_kc_9" ColumnName="sau_kc_9" />
+          <ScalarProperty Name="tag_kc_9" ColumnName="tag_kc_9" />
+          <ScalarProperty Name="agrcount_kc9" ColumnName="agrcount_kc9" />
+          <ScalarProperty Name="sau_kc_10" ColumnName="sau_kc_10" />
+          <ScalarProperty Name="tag_kc_10" ColumnName="tag_kc_10" />
+          <ScalarProperty Name="agrcount_kc10" ColumnName="agrcount_kc10" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanicaConnectSystemGpaDataByKod" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaDataByKod">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaDataByKod_Result">
+          <ScalarProperty Name="ks_name" ColumnName="ks_name" />
+          <ScalarProperty Name="kcCount" ColumnName="kcCount" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="kodks" ColumnName="kodks" />
+          <ScalarProperty Name="agrCount" ColumnName="agrCount" />
+          <ScalarProperty Name="sau_kc_1" ColumnName="sau_kc_1" />
+          <ScalarProperty Name="tag_kc_1" ColumnName="tag_kc_1" />
+          <ScalarProperty Name="agrcount_kc1" ColumnName="agrcount_kc1" />
+          <ScalarProperty Name="sau_kc_2" ColumnName="sau_kc_2" />
+          <ScalarProperty Name="tag_kc_2" ColumnName="tag_kc_2" />
+          <ScalarProperty Name="agrcount_kc2" ColumnName="agrcount_kc2" />
+          <ScalarProperty Name="sau_kc_3" ColumnName="sau_kc_3" />
+          <ScalarProperty Name="tag_kc_3" ColumnName="tag_kc_3" />
+          <ScalarProperty Name="agrcount_kc3" ColumnName="agrcount_kc3" />
+          <ScalarProperty Name="sau_kc_4" ColumnName="sau_kc_4" />
+          <ScalarProperty Name="tag_kc_4" ColumnName="tag_kc_4" />
+          <ScalarProperty Name="agrcount_kc4" ColumnName="agrcount_kc4" />
+          <ScalarProperty Name="sau_kc_5" ColumnName="sau_kc_5" />
+          <ScalarProperty Name="tag_kc_5" ColumnName="tag_kc_5" />
+          <ScalarProperty Name="agrcount_kc5" ColumnName="agrcount_kc5" />
+          <ScalarProperty Name="sau_kc_6" ColumnName="sau_kc_6" />
+          <ScalarProperty Name="tag_kc_6" ColumnName="tag_kc_6" />
+          <ScalarProperty Name="agrcount_kc6" ColumnName="agrcount_kc6" />
+          <ScalarProperty Name="sau_kc_7" ColumnName="sau_kc_7" />
+          <ScalarProperty Name="tag_kc_7" ColumnName="tag_kc_7" />
+          <ScalarProperty Name="agrcount_kc7" ColumnName="agrcount_kc7" />
+          <ScalarProperty Name="sau_kc_8" ColumnName="sau_kc_8" />
+          <ScalarProperty Name="tag_kc_8" ColumnName="tag_kc_8" />
+          <ScalarProperty Name="agrcount_kc8" ColumnName="agrcount_kc8" />
+          <ScalarProperty Name="sau_kc_9" ColumnName="sau_kc_9" />
+          <ScalarProperty Name="tag_kc_9" ColumnName="tag_kc_9" />
+          <ScalarProperty Name="agrcount_kc9" ColumnName="agrcount_kc9" />
+          <ScalarProperty Name="sau_kc_10" ColumnName="sau_kc_10" />
+          <ScalarProperty Name="tag_kc_10" ColumnName="tag_kc_10" />
+          <ScalarProperty Name="agrcount_kc10" ColumnName="agrcount_kc10" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanicaConnectSystemKcData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemKcData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemKcData_Result">
+          <ScalarProperty Name="ks_name" ColumnName="ks_name" />
+          <ScalarProperty Name="kcCount" ColumnName="kcCount" />
+          <ScalarProperty Name="kodlpu" ColumnName="kodlpu" />
+          <ScalarProperty Name="kodks" ColumnName="kodks" />
+          <ScalarProperty Name="agrCount" ColumnName="agrCount" />
+          <ScalarProperty Name="sau_kc_1" ColumnName="sau_kc_1" />
+          <ScalarProperty Name="tag_kc_1" ColumnName="tag_kc_1" />
+          <ScalarProperty Name="sau_kc_2" ColumnName="sau_kc_2" />
+          <ScalarProperty Name="tag_kc_2" ColumnName="tag_kc_2" />
+          <ScalarProperty Name="sau_kc_3" ColumnName="sau_kc_3" />
+          <ScalarProperty Name="tag_kc_3" ColumnName="tag_kc_3" />
+          <ScalarProperty Name="sau_kc_4" ColumnName="sau_kc_4" />
+          <ScalarProperty Name="tag_kc_4" ColumnName="tag_kc_4" />
+          <ScalarProperty Name="sau_kc_5" ColumnName="sau_kc_5" />
+          <ScalarProperty Name="tag_kc_5" ColumnName="tag_kc_5" />
+          <ScalarProperty Name="sau_kc_6" ColumnName="sau_kc_6" />
+          <ScalarProperty Name="tag_kc_6" ColumnName="tag_kc_6" />
+          <ScalarProperty Name="sau_kc_7" ColumnName="sau_kc_7" />
+          <ScalarProperty Name="tag_kc_7" ColumnName="tag_kc_7" />
+          <ScalarProperty Name="sau_kc_8" ColumnName="sau_kc_8" />
+          <ScalarProperty Name="tag_kc_8" ColumnName="tag_kc_8" />
+          <ScalarProperty Name="sau_kc_9" ColumnName="sau_kc_9" />
+          <ScalarProperty Name="tag_kc_9" ColumnName="tag_kc_9" />
+          <ScalarProperty Name="sau_kc_10" ColumnName="sau_kc_10" />
+          <ScalarProperty Name="tag_kc_10" ColumnName="tag_kc_10" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="hp_GetTelemehanicaReportData" FunctionName="Хранилище WEB_REPORTSModel.hp_GetTelemehanicaReportData" />
+    <FunctionImportMapping FunctionImportName="rts_GetStatisticDataFromLpu" FunctionName="Хранилище WEB_REPORTSModel.rts_GetStatisticDataFromLpu" />
+    <EntitySetMapping Name="ZAR_STATES_ALL">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.ZAR_STATES_ALL">
+        <MappingFragment StoreEntitySet="ZAR_STATES_ALL">
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZAR_NSI_WEB">
+      <EntityTypeMapping TypeName="WEB_REPORTSModel.ZAR_NSI_WEB">
+        <MappingFragment StoreEntitySet="ZAR_NSI_WEB">
+          <ScalarProperty Name="LongZAR_Name" ColumnName="LongZAR_Name" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ShortZAR_Name" ColumnName="ShortZAR_Name" />
+          <ScalarProperty Name="Tagname" ColumnName="Tagname" />
+          <ScalarProperty Name="kodZAR_SODU" ColumnName="kodZAR_SODU" />
+          <ScalarProperty Name="kodZAR_SLTM" ColumnName="kodZAR_SLTM" />
+          <ScalarProperty Name="KP_Name" ColumnName="KP_Name" />
+          <ScalarProperty Name="LPU_Name" ColumnName="LPU_Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

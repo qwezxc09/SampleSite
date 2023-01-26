@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <br />
+  <div class="p-grid p-justify-start" style="margin-left:10px">
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-dropdown [options]="kss" scrollHeight="350px" [(ngModel)]="selectedKS" optionLabel="title" placeholder="Все КС" (onChange)="changeKS()"></p-dropdown>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-dropdown [options]="kcs" scrollHeight="350px" [(ngModel)]="selectedKC" optionLabel="title" placeholder="Все цеха"></p-dropdown>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-dropdown [options]="objTypeList" scrollHeight="350px" [(ngModel)]="selectedObjType" optionLabel="Description" placeholder="Состояние ГПА"></p-dropdown>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-calendar [(ngModel)]="dateStart" [locale]="ru" [showIcon]="true" [readonlyInput]="true" inputStyleClass="dateTimeField" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-calendar icon="pi pi-clock" [(ngModel)]="dateStart" [showTime]="true" [timeOnly]="true" [showIcon]="true" inputId="time"></p-calendar>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-calendar [(ngModel)]="dateEnd" [locale]="ru" [showIcon]="true" [readonlyInput]="true" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-calendar icon="pi pi-clock" [(ngModel)]="dateEnd" [showTime]="true" [timeOnly]="true" [showIcon]="true"></p-calendar>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <p-selectButton [options]="dataTypes" [(ngModel)]="selectedData" optionLabel="name"></p-selectButton>
+    </div>
+    <div style="margin-left:5px;margin-top:5px;" *ngIf="selectedData.value === 1">
+      <p-dropdown [options]="intervalList" scrollHeight="350px" [(ngModel)]="selectedInterval" optionLabel="title" placeholder="Интервалы"></p-dropdown>
+    </div>
+    <div class="p-grid p-justify-start" style="margin-left:10px;margin-top:5px;" *ngIf="selectedData.value === 2">
+      <div style="font-weight:bold; margin-top:5px; margin-right:2px">от </div>
+      <input type="text" pInputText style="width:50px" />
+      <div style="font-weight:bold; margin-top:5px; margin-right:2px; margin-left:5px">до</div>
+      <input type="text" pInputText style="width:50px; margin-right:15px" />
+    </div>
+    <div style="margin-left:5px;margin-top:5px;">
+      <span class="p-buttonset">
+        <button pButton pRipple label="Очистить фильтр" icon="pi pi-filter-slash" style="background-color:deepskyblue" (click)="clearFilters()"></button>
+        <button pButton pRipple *ngIf="((loadingKs&&loadingInterval&&loadingObj)||loadingKc)==false" label="Сформировать" icon="pi pi-check" iconPos="left" (click)="createReport()" pTooltip="Сформировать отчет" [disabled]="(dateStart > dateEnd)"></button>
+        <button pButton *ngIf="((loadingKs&&loadingInterval&&loadingObj)||loadingKc)==true" [disabled]="true" label="Сформировать" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+        <!--<button pButton pRipple label="Расчитать" icon="pi pi-check" iconPos="left" [disabled]="(dateStart > dateEnd)"></button>-->
+        <button pButton *ngIf="(loadingExcel||(loadingKs&&loadingInterval&&loadingObj)||loadingKc)==false" label="Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет" [disabled]="(dateStart > dateEnd)"></button>
+        <button pButton *ngIf="(loadingExcel||(loadingKs&&loadingInterval&&loadingObj)||loadingKc)==true" [disabled]="true" label="Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+      </span>
+    </div>
+  </div>
+
+  <div class="row" style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+    <p-table [loading]="loading" [value]="tableValue" [scrollable]="true" scrollHeight="700px" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>№ п/п</th>
+          <th pSortableColumn="KSName">Наименование КС<p-sortIcon field="KSName"></p-sortIcon></th>
+          <th pSortableColumn="KCName">Цех<p-sortIcon field="KCName"></p-sortIcon></th>
+          <th pSortableColumn="AgrTitle">Агрегат<p-sortIcon field="AgrTitle"></p-sortIcon></th>
+          <th>Описание тега</th>
+          <th pSortableColumn="StartInterval">Начало РВ<p-sortIcon field="StartInterval"></p-sortIcon></th>
+          <th pSortableColumn="EndInterval">Окончание РВ<p-sortIcon field="EndInterval"></p-sortIcon></th>
+          <th pSortableColumn="LengthIntervalStr">Интервал РВ<p-sortIcon field="LengthIntervalStr"></p-sortIcon></th>
+          <th>Значение в начале интервала РВ</th>
+          <th>Значение в конце интервала РВ</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr [ngClass]="{'select_itog': val.isItog}">
+          <td [ngClass]="{'select_itog': val.isItog}">{{rowIndex+1}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.KSName}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.KCName}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.AgrTitle}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.TagDescription}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.StartInterval}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.EndInterval}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.LengthIntervalStr}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.StartValue}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.EndValue}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>
+

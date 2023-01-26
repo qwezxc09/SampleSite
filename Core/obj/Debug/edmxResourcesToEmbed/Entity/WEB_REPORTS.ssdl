@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище WEB_REPORTSModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGR_nsi">
+    <Key>
+      <PropertyRef Name="id_agr" />
+    </Key>
+    <Property Name="id_agr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodKs" Type="int" Nullable="false" />
+    <Property Name="kodKc" Type="int" Nullable="false" />
+    <Property Name="kodAgr" Type="int" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="AsoduDataKc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="kodKS" Type="smallint" Nullable="false" />
+    <Property Name="kodKC" Type="smallint" Nullable="false" />
+    <Property Name="OPCQuality" Type="int" Nullable="false" />
+    <Property Name="TagValue" Type="decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduDataLPU">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="kodLPU" Type="smallint" Nullable="false" />
+    <Property Name="OPCQuality" Type="int" Nullable="false" />
+    <Property Name="TagValue" Type="decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduManualTags">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dt" Type="datetime" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="OPCQuality" Type="int" Nullable="false" />
+    <Property Name="TagValue" Type="decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduStatistic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodLpu" Type="int" Nullable="false" />
+    <Property Name="handEnterCount" Type="int" Nullable="false" />
+    <Property Name="handEnterAutoCount" Type="int" Nullable="false" />
+    <Property Name="goodQualityCount" Type="int" Nullable="false" />
+    <Property Name="tagCount" Type="int" Nullable="false" />
+    <Property Name="createDt" Type="datetime" Nullable="false" />
+    <Property Name="repairCount" Type="int" Nullable="false" />
+    <Property Name="bedQualityCount" Type="int" />
+  </EntityType>
+  <EntityType Name="AsoduStatisticNew">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodLpu" Type="int" Nullable="false" />
+    <Property Name="handEnterCount" Type="int" Nullable="false" />
+    <Property Name="handEnterAutoCount" Type="int" Nullable="false" />
+    <Property Name="goodQualityCount" Type="int" Nullable="false" />
+    <Property Name="tagCount" Type="int" Nullable="false" />
+    <Property Name="createDt" Type="datetime" Nullable="false" />
+    <Property Name="repairCount" Type="int" Nullable="false" />
+    <Property Name="bedQualityCount" Type="int" />
+    <Property Name="tagCountAllInPDS" Type="int" />
+  </EntityType>
+  <EntityType Name="Deleted_nsi_obj">
+    <Key>
+      <PropertyRef Name="id_deleted_nsi_obj" />
+    </Key>
+    <Property Name="id_deleted_nsi_obj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deleted_date" Type="datetime" Nullable="false" />
+    <Property Name="id_user" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events_history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="object_id" Type="int" />
+  </EntityType>
+  <EntityType Name="IasInfo">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="TagName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LongDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShortDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="InputSystem" Type="nvarchar" MaxLength="50" />
+    <Property Name="InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="EngUnits" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDObj" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDType" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAUType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDSauType" Type="int" />
+  </EntityType>
+  <EntityType Name="Interval_nsi">
+    <Key>
+      <PropertyRef Name="id_interval" />
+    </Key>
+    <Property Name="id_interval" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+    <Property Name="sort_order" Type="int" />
+  </EntityType>
+  <EntityType Name="IusTags">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="TagName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LongDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShortDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="Algorithm" Type="nchar" MaxLength="20" />
+    <Property Name="InputSystem" Type="nvarchar" MaxLength="50" />
+    <Property Name="InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="st108.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="st110.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="st111.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="st112.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="State.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="Value.Open.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="Value.Close.InputSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="Value.HiHi.Limit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value.Hi.Limit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value.LoLo.Limit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value.Lo.Limit" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsConvert" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsHand" Type="nvarchar" MaxLength="10" />
+    <Property Name="Template" Type="nvarchar" MaxLength="255" />
+    <Property Name="Area" Type="nvarchar" MaxLength="255" />
+    <Property Name="Container" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContainedName" Type="nvarchar" MaxLength="255" />
+    <Property Name="MinEU" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaxEU" Type="nvarchar" MaxLength="50" />
+    <Property Name="MinRaw" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaxRaw" Type="nvarchar" MaxLength="50" />
+    <Property Name="EngUnits" Type="nvarchar" MaxLength="50" />
+    <Property Name="Scale" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_telemehanica_types" Type="int" />
+    <Property Name="id_telemehanica_levels" Type="int" />
+    <Property Name="kodLpu" Type="int" />
+    <Property Name="kodKs" Type="int" />
+    <Property Name="kodKc" Type="int" />
+    <Property Name="kodAgr" Type="int" />
+    <Property Name="IDObj" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KC_nsi">
+    <Key>
+      <PropertyRef Name="id_kc" />
+    </Key>
+    <Property Name="id_kc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ks" Type="int" Nullable="false" />
+    <Property Name="kodKs" Type="int" Nullable="false" />
+    <Property Name="kodKc" Type="int" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="KS_nsi">
+    <Key>
+      <PropertyRef Name="id_ks" />
+    </Key>
+    <Property Name="id_ks" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodks" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="stitle" Type="nvarchar" MaxLength="2" />
+    <Property Name="ks_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_lpu" Type="int" />
+    <Property Name="ks_lpu_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="LPU_nsi">
+    <Key>
+      <PropertyRef Name="id_lpu" />
+    </Key>
+    <Property Name="id_lpu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodlpu" Type="int" Nullable="false" />
+    <Property Name="kodlpu_old" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="128" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+    <Property Name="kodlpu_union" Type="int" />
+  </EntityType>
+  <EntityType Name="Quality_types">
+    <Key>
+      <PropertyRef Name="id_quality_types" />
+    </Key>
+    <Property Name="id_quality_types" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SauType_nsi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="Telemehanica_levels">
+    <Key>
+      <PropertyRef Name="id_telemehanica_levels" />
+    </Key>
+    <Property Name="id_telemehanica_levels" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="template" Type="nvarchar(max)" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="Telemehanica_types">
+    <Key>
+      <PropertyRef Name="id_telemehanica_types" />
+    </Key>
+    <Property Name="id_telemehanica_types" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="75" />
+    <Property Name="is_active" Type="bit" Nullable="false" />
+    <Property Name="last_login" Type="datetime" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="int" />
+  </EntityType>
+  <EntityType Name="ZAR_NSI">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kodLpu" Type="int" Nullable="false" />
+    <Property Name="kodKS" Type="int" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZAR_NSI_WEB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LPU_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="KP_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="kodZAR_SLTM" Type="nvarchar" MaxLength="255" />
+    <Property Name="kodZAR_SODU" Type="nvarchar" MaxLength="255" />
+    <Property Name="Tagname" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShortZAR_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+    <Property Name="LongZAR_Name" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ZAR_STATES_ALL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Quality" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.ASDU_ESG_1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ASDU_ESG_1">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="Session" Type="nvarchar" MaxLength="400" />
+    <Property Name="MsgType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DTS" Type="datetime" Nullable="false" />
+    <Property Name="CommonCount" Type="int" />
+    <Property Name="PeredDost" Type="int" />
+    <Property Name="PeredNeDost" Type="int" />
+    <Property Name="Pustoe" Type="int" />
+    <Property Name="NeChislo" Type="int" />
+    <Property Name="NeVhodVInt" Type="int" />
+    <Property Name="OtsutPriv" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.ASDU_ESG_1_old" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ASDU_ESG_1_old">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="Session" Type="nvarchar" MaxLength="400" />
+    <Property Name="MsgType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DTS" Type="datetime" Nullable="false" />
+    <Property Name="CommonCount" Type="int" />
+    <Property Name="PeredDost" Type="int" />
+    <Property Name="PeredNeDost" Type="int" />
+    <Property Name="Pustoe" Type="int" />
+    <Property Name="NeChislo" Type="int" />
+    <Property Name="NeVhodVInt" Type="int" />
+    <Property Name="OtsutPriv" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.v_ASDU_ESG_LPU" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_ASDU_ESG_LPU">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="LPUTitle" Type="varchar" MaxLength="128" />
+    <Property Name="Session" Type="nvarchar" MaxLength="400" />
+    <Property Name="MsgType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DTS" Type="datetime" Nullable="false" />
+    <Property Name="CommonCount" Type="int" />
+    <Property Name="PeredDost" Type="int" />
+    <Property Name="PeredNeDost" Type="int" />
+    <Property Name="Pustoe" Type="int" />
+    <Property Name="NeChislo" Type="int" />
+    <Property Name="NeVhodVInt" Type="int" />
+    <Property Name="OtsutPriv" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.v_paramASDU_ESG" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_paramASDU_ESG">
+    <Key>
+      <PropertyRef Name="kodLPU" />
+      <PropertyRef Name="DTS" />
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="ParamId" />
+      <PropertyRef Name="ErrCategoryId" />
+    </Key>
+    <Property Name="LPUTitle" Type="varchar" MaxLength="128" />
+    <Property Name="kodLPU" Type="smallint" Nullable="false" />
+    <Property Name="DTS" Type="datetime" Nullable="false" />
+    <Property Name="SessionTitle" Type="nvarchar" MaxLength="400" />
+    <Property Name="MsgType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FulParamName" Type="nvarchar" MaxLength="255" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParamId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ParamValue" Type="nvarchar" MaxLength="50" />
+    <Property Name="ErrCategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.v_SessionList" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_SessionList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.v_SessionList_old" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="v_SessionList_old">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WEB_REPORTS.dbo.Справочник_IUSTags" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Справочник_IUSTags">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="title" Type="varchar" MaxLength="128" />
+    <Property Name="ks_lpu_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="kodKc" Type="int" />
+    <Property Name="kodAgr" Type="int" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LongDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShortDesc" Type="nvarchar" MaxLength="255" />
+    <Property Name="Algorithm" Type="nchar" MaxLength="20" />
+    <Property Name="InputSystem" Type="nvarchar" MaxLength="50" />
+    <Property Name="InputSource" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_Events_history_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Events_history" Type="Self.Events_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Events_history">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Interval_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Interval_nsi" Type="Self.Interval_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Interval_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IusTags_Telemehanica_levels">
+    <End Role="Telemehanica_levels" Type="Self.Telemehanica_levels" Multiplicity="0..1" />
+    <End Role="IusTags" Type="Self.IusTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telemehanica_levels">
+        <PropertyRef Name="id_telemehanica_levels" />
+      </Principal>
+      <Dependent Role="IusTags">
+        <PropertyRef Name="id_telemehanica_levels" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KC_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="KC_nsi" Type="Self.KC_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="KC_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KC_nsi_KS_nsi">
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="1" />
+    <End Role="KC_nsi" Type="Self.KC_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KS_nsi">
+        <PropertyRef Name="id_ks" />
+      </Principal>
+      <Dependent Role="KC_nsi">
+        <PropertyRef Name="id_ks" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KS_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="KS_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KS_nsi_LPU_nsi">
+    <End Role="LPU_nsi" Type="Self.LPU_nsi" Multiplicity="0..1" />
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LPU_nsi">
+        <PropertyRef Name="id_lpu" />
+      </Principal>
+      <Dependent Role="KS_nsi">
+        <PropertyRef Name="id_lpu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LPU_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="LPU_nsi" Type="Self.LPU_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="LPU_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telemehanica_levels_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Telemehanica_levels" Type="Self.Telemehanica_levels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Telemehanica_levels">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telemehanica_types_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Telemehanica_types" Type="Self.Telemehanica_types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Telemehanica_types">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="get_Asodu_data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_Asodu_dataKC_modern" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_dataLPU_modern" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsKC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodKS" Type="smallint" Mode="In" />
+    <Parameter Name="kodKC" Type="smallint" Mode="In" />
+    <Parameter Name="minLen" Type="int" Mode="In" />
+    <Parameter Name="maxLen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsKC_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodKS" Type="smallint" Mode="In" />
+    <Parameter Name="kodKC" Type="smallint" Mode="In" />
+    <Parameter Name="lenFilt" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsLPU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodLPU" Type="smallint" Mode="In" />
+    <Parameter Name="minLen" Type="int" Mode="In" />
+    <Parameter Name="maxLen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsLPU_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodLPU" Type="smallint" Mode="In" />
+    <Parameter Name="lenFilt" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsManualTags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodKS" Type="smallint" Mode="In" />
+    <Parameter Name="kodKC" Type="smallint" Mode="In" />
+    <Parameter Name="tagType" Type="nvarchar" Mode="In" />
+    <Parameter Name="minLen" Type="int" Mode="In" />
+    <Parameter Name="maxLen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsManualTags_0ld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodKS" Type="smallint" Mode="In" />
+    <Parameter Name="kodKC" Type="smallint" Mode="In" />
+    <Parameter Name="tagType" Type="nvarchar" Mode="In" />
+    <Parameter Name="minLen" Type="int" Mode="In" />
+    <Parameter Name="maxLen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_intervalsManualTags1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+    <Parameter Name="kodKS" Type="smallint" Mode="In" />
+    <Parameter Name="kodKC" Type="smallint" Mode="In" />
+    <Parameter Name="minLen" Type="int" Mode="In" />
+    <Parameter Name="maxLen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_ManualTags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dtbegin" Type="datetime" Mode="In" />
+    <Parameter Name="dtend" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="get_Asodu_StatisticData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetAsduEsg1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sesion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="hp_GetAsduEsg1Period" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sesion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dt" Type="datetime" Mode="In" />
+    <Parameter Name="EndDt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="hp_GetAsduEsgLPU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sesion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="hp_GetAsduEsgLPUPeriod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sesion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dt" Type="datetime" Mode="In" />
+    <Parameter Name="EndDt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="hp_GetDoGroupKcList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetHandEnterData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kodlpu" Type="int" Mode="In" />
+    <Parameter Name="kodks" Type="int" Mode="In" />
+    <Parameter Name="dt" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="hp_GetLiveStatisticData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetLiveStatisticData_History" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetLiveStatisticData_Repair" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetLiveStatisticData_RepairNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="objectString" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="hp_GetLiveTagList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kodlpu" Type="int" Mode="In" />
+    <Parameter Name="qualitytypeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="hp_GetObjTypeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetParamAsduEsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lputitle" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ErrCategoryId" Type="int" Mode="In" />
+    <Parameter Name="sesion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Dt" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="hp_GetPeriodChartData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kodlpu" Type="int" Mode="In" />
+    <Parameter Name="startDt" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="endDt" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="hp_GetPeriodStatisticData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDt" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="endDt" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="hp_GetPeriodStatisticData_old" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDt" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="endDt" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="hp_GetPeriodTagList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kodlpu" Type="int" Mode="In" />
+    <Parameter Name="qualitytypeId" Type="int" Mode="In" />
+    <Parameter Name="startDt" Type="nvarchar" Mode="In" />
+    <Parameter Name="endDt" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="hp_GetTagTypeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetTelemehanica_SauKc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="kodLpu" Type="int" Mode="In" />
+    <Parameter Name="kodKs" Type="int" Mode="In" />
+  </Function>
+  <Function Name="hp_GetTelemehanicaConnectSystemData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetTelemehanicaConnectSystemGpaData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetTelemehanicaConnectSystemGpaDataByKod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetTelemehanicaConnectSystemKcData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="hp_GetTelemehanicaReportData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lpu_id" Type="int" Mode="In" />
+    <Parameter Name="ks_id" Type="int" Mode="In" />
+    <Parameter Name="level_id" Type="int" Mode="In" />
+    <Parameter Name="telemehanicatype_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rts_GetStatisticDataFromLpu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDt" Type="nvarchar" Mode="In" />
+    <Parameter Name="endDt" Type="nvarchar" Mode="In" />
+    <Parameter Name="kodLPU" Type="smallint" Mode="In" />
+    <Parameter Name="forBDRV2" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="rts_GetTagsCountFromPDS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="kodLPU" Type="smallint" Mode="In" />
+    <Parameter Name="forBDRV2" Type="smallint" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище WEB_REPORTSModelContainer">
+    <EntitySet Name="AGR_nsi" EntityType="Self.AGR_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsoduDataKc" EntityType="Self.AsoduDataKc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsoduDataLPU" EntityType="Self.AsoduDataLPU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsoduManualTags" EntityType="Self.AsoduManualTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsoduStatistic" EntityType="Self.AsoduStatistic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AsoduStatisticNew" EntityType="Self.AsoduStatisticNew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deleted_nsi_obj" EntityType="Self.Deleted_nsi_obj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events_history" EntityType="Self.Events_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IasInfo" EntityType="Self.IasInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interval_nsi" EntityType="Self.Interval_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IusTags" EntityType="Self.IusTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KC_nsi" EntityType="Self.KC_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KS_nsi" EntityType="Self.KS_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LPU_nsi" EntityType="Self.LPU_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quality_types" EntityType="Self.Quality_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SauType_nsi" EntityType="Self.SauType_nsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telemehanica_levels" EntityType="Self.Telemehanica_levels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telemehanica_types" EntityType="Self.Telemehanica_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZAR_NSI" EntityType="Self.ZAR_NSI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZAR_NSI_WEB" EntityType="Self.ZAR_NSI_WEB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZAR_STATES_ALL" EntityType="Self.ZAR_STATES_ALL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ASDU_ESG_1" EntityType="Self.ASDU_ESG_1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ASDU_ESG_1].[Session] AS [Session], 
+    [ASDU_ESG_1].[MsgType] AS [MsgType], 
+    [ASDU_ESG_1].[DTS] AS [DTS], 
+    [ASDU_ESG_1].[CommonCount] AS [CommonCount], 
+    [ASDU_ESG_1].[PeredDost] AS [PeredDost], 
+    [ASDU_ESG_1].[PeredNeDost] AS [PeredNeDost], 
+    [ASDU_ESG_1].[Pustoe] AS [Pustoe], 
+    [ASDU_ESG_1].[NeChislo] AS [NeChislo], 
+    [ASDU_ESG_1].[NeVhodVInt] AS [NeVhodVInt], 
+    [ASDU_ESG_1].[OtsutPriv] AS [OtsutPriv]
+    FROM [dbo].[ASDU_ESG_1] AS [ASDU_ESG_1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ASDU_ESG_1_old" EntityType="Self.ASDU_ESG_1_old" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ASDU_ESG_1_old].[Session] AS [Session], 
+    [ASDU_ESG_1_old].[MsgType] AS [MsgType], 
+    [ASDU_ESG_1_old].[DTS] AS [DTS], 
+    [ASDU_ESG_1_old].[CommonCount] AS [CommonCount], 
+    [ASDU_ESG_1_old].[PeredDost] AS [PeredDost], 
+    [ASDU_ESG_1_old].[PeredNeDost] AS [PeredNeDost], 
+    [ASDU_ESG_1_old].[Pustoe] AS [Pustoe], 
+    [ASDU_ESG_1_old].[NeChislo] AS [NeChislo], 
+    [ASDU_ESG_1_old].[NeVhodVInt] AS [NeVhodVInt], 
+    [ASDU_ESG_1_old].[OtsutPriv] AS [OtsutPriv]
+    FROM [dbo].[ASDU_ESG_1_old] AS [ASDU_ESG_1_old]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_ASDU_ESG_LPU" EntityType="Self.v_ASDU_ESG_LPU" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_ASDU_ESG_LPU].[LPUTitle] AS [LPUTitle], 
+    [v_ASDU_ESG_LPU].[Session] AS [Session], 
+    [v_ASDU_ESG_LPU].[MsgType] AS [MsgType], 
+    [v_ASDU_ESG_LPU].[DTS] AS [DTS], 
+    [v_ASDU_ESG_LPU].[CommonCount] AS [CommonCount], 
+    [v_ASDU_ESG_LPU].[PeredDost] AS [PeredDost], 
+    [v_ASDU_ESG_LPU].[PeredNeDost] AS [PeredNeDost], 
+    [v_ASDU_ESG_LPU].[Pustoe] AS [Pustoe], 
+    [v_ASDU_ESG_LPU].[NeChislo] AS [NeChislo], 
+    [v_ASDU_ESG_LPU].[NeVhodVInt] AS [NeVhodVInt], 
+    [v_ASDU_ESG_LPU].[OtsutPriv] AS [OtsutPriv]
+    FROM [dbo].[v_ASDU_ESG_LPU] AS [v_ASDU_ESG_LPU]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_paramASDU_ESG" EntityType="Self.v_paramASDU_ESG" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_paramASDU_ESG].[LPUTitle] AS [LPUTitle], 
+    [v_paramASDU_ESG].[kodLPU] AS [kodLPU], 
+    [v_paramASDU_ESG].[DTS] AS [DTS], 
+    [v_paramASDU_ESG].[SessionTitle] AS [SessionTitle], 
+    [v_paramASDU_ESG].[MsgType] AS [MsgType], 
+    [v_paramASDU_ESG].[FulParamName] AS [FulParamName], 
+    [v_paramASDU_ESG].[TagName] AS [TagName], 
+    [v_paramASDU_ESG].[ParamId] AS [ParamId], 
+    [v_paramASDU_ESG].[ParamValue] AS [ParamValue], 
+    [v_paramASDU_ESG].[ErrCategoryId] AS [ErrCategoryId]
+    FROM [dbo].[v_paramASDU_ESG] AS [v_paramASDU_ESG]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_SessionList" EntityType="Self.v_SessionList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_SessionList].[ID] AS [ID], 
+    [v_SessionList].[NAME] AS [NAME], 
+    [v_SessionList].[DESCRIPTION] AS [DESCRIPTION]
+    FROM [dbo].[v_SessionList] AS [v_SessionList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_SessionList_old" EntityType="Self.v_SessionList_old" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_SessionList_old].[ID] AS [ID], 
+    [v_SessionList_old].[NAME] AS [NAME], 
+    [v_SessionList_old].[DESCRIPTION] AS [DESCRIPTION]
+    FROM [dbo].[v_SessionList_old] AS [v_SessionList_old]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Справочник_IUSTags" EntityType="Self.Справочник_IUSTags" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Справочник_IUSTags].[title] AS [title], 
+    [Справочник_IUSTags].[ks_lpu_name] AS [ks_lpu_name], 
+    [Справочник_IUSTags].[kodKc] AS [kodKc], 
+    [Справочник_IUSTags].[kodAgr] AS [kodAgr], 
+    [Справочник_IUSTags].[TagName] AS [TagName], 
+    [Справочник_IUSTags].[LongDesc] AS [LongDesc], 
+    [Справочник_IUSTags].[ShortDesc] AS [ShortDesc], 
+    [Справочник_IUSTags].[Algorithm] AS [Algorithm], 
+    [Справочник_IUSTags].[InputSystem] AS [InputSystem], 
+    [Справочник_IUSTags].[InputSource] AS [InputSource]
+    FROM [dbo].[Справочник_IUSTags] AS [Справочник_IUSTags]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Events_history_User" Association="Self.FK_Events_history_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Events_history" EntitySet="Events_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Interval_nsi_Deleted_nsi_obj" Association="Self.FK_Interval_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Interval_nsi" EntitySet="Interval_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IusTags_Telemehanica_levels" Association="Self.FK_IusTags_Telemehanica_levels">
+      <End Role="Telemehanica_levels" EntitySet="Telemehanica_levels" />
+      <End Role="IusTags" EntitySet="IusTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KC_nsi_Deleted_nsi_obj" Association="Self.FK_KC_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="KC_nsi" EntitySet="KC_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KC_nsi_KS_nsi" Association="Self.FK_KC_nsi_KS_nsi">
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+      <End Role="KC_nsi" EntitySet="KC_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KS_nsi_Deleted_nsi_obj" Association="Self.FK_KS_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KS_nsi_LPU_nsi" Association="Self.FK_KS_nsi_LPU_nsi">
+      <End Role="LPU_nsi" EntitySet="LPU_nsi" />
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LPU_nsi_Deleted_nsi_obj" Association="Self.FK_LPU_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="LPU_nsi" EntitySet="LPU_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telemehanica_levels_Deleted_nsi_obj" Association="Self.FK_Telemehanica_levels_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Telemehanica_levels" EntitySet="Telemehanica_levels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telemehanica_types_Deleted_nsi_obj" Association="Self.FK_Telemehanica_types_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Telemehanica_types" EntitySet="Telemehanica_types" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Deleted_nsi_obj" Association="Self.FK_User_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

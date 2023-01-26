@@ -1,0 +1,127 @@
+<div class="container-fluid">
+  <div class="row" style="margin-left:1rem;margin-top:1rem;margin-right:1rem">
+    <div class="container1">
+      <p style="padding-top:8px;">Контроль полноты сбора данных реального времени с ЛПУ</p>
+    </div>
+  </div>
+  <br />
+  <div class="p-grid p-justify-start" style="margin-left:5px">
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-multiSelect [options]="lpus" [(ngModel)]="selectedLpus" scrollHeight="350px" maxSelectedLabels="4" selectedItemsLabel="{0} Элементов выбрано" defaultLabel="Выберите ЛПУ" optionLabel="title" [filter]="true"></p-multiSelect>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <p-selectButton [options]="dataTypes" [(ngModel)]="selectedData" optionLabel="name"></p-selectButton>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;" *ngIf="selectedData.value === 2|| selectedData.value === 3">
+      <p-calendar [(ngModel)]="dateStart" [showIcon]="true" [readonlyInput]="true" showButtonBar="true" [locale]="ru" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;" *ngIf="selectedData.value === 3">
+      <p-calendar [(ngModel)]="dateEnd" [showIcon]="true" [readonlyInput]="true" size="5" [locale]="ru" showButtonBar="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2035"></p-calendar>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <button pButton *ngIf="loadingButton==false" type="button" label="Выбрать данные" icon="pi pi-check" iconPos="left" (click)="getData()" pTooltip="Сформировать отчет" [disabled]="((dateStart > dateEnd) && (selectedData.value === 3))"></button>
+      <button pButton *ngIf="loadingButton==true" [disabled]="true" label="Выбрать данные" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </div>
+    <div style="margin-left:10px;margin-top:5px;">
+      <button pButton *ngIf="(loadingExcel||loadingButton)==false" label="Выгрузить в Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет" [disabled]="((dateStart > dateEnd) && (selectedData.value === 3))"></button>
+      <button pButton *ngIf="(loadingExcel||loadingButton)==true" [disabled]="true" label="Выгрузить в Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </div>
+  </div>
+
+  <div class="ui-g" style="margin:1rem; border-color:darkgray; border-style:solid; border-width:1px">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+    <p-table [loading]="loading" [value]="serverValue.tableValue" [scrollable]="true" scrollHeight="700px" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="4">№ п/п</th>
+          <th rowspan="4">Наименование ЛПУ</th>
+          <th colspan="4" style="text-align: center;">Общее количество</th>
+          <th colspan="5" style="text-align: center;">Полнота сбор данных (в работе)</th>
+        </tr>
+        <tr>
+          <th pSortableColumn="tagCountAllinPds" rowspan="2">Кол-во тегов в ПДС<p-sortIcon field="tagCountAllinPds"></p-sortIcon></th>
+          <th pSortableColumn="tagCount" rowspan="2">Итого<p-sortIcon field="tagCount"></p-sortIcon></th>
+          <th pSortableColumn="inWorkCount" rowspan="2">В работе<p-sortIcon field="inWorkCount"></p-sortIcon></th>
+          <th rowspan="2" pSortableColumn="repairCountPercent">В ремонте<p-sortIcon field="repairCountPercent"></p-sortIcon></th>
+          <th colspan="4" style="text-align: center;">С хорошим качеством</th>
+          <th rowspan="2" pSortableColumn="bedQualityCountPercent">С плохим качеством<p-sortIcon field="bedQualityCountPercent"></p-sortIcon></th>
+        </tr>
+        <tr>
+          <th pSortableColumn="fullCollectDataSumPercent">Итого<p-sortIcon field="fullCollectDataSumPercent"></p-sortIcon></th>
+          <th pSortableColumn="handEnterCountPercent">В ручном режиме<p-sortIcon field="handEnterCountPercent"></p-sortIcon></th>
+          <th pSortableColumn="handEnterAutoCountPercent">В ручном режими при наличиии автоматики<p-sortIcon field="handEnterAutoCountPercent"></p-sortIcon></th>
+          <th pSortableColumn="goodQualityCountPercent">С хорошим качеством от автоматики<p-sortIcon field="goodQualityCountPercent"></p-sortIcon></th>
+        </tr>
+        <tr>
+          <th>(кол-во)</th>
+          <th>(кол-во)</th>
+          <th>(кол-во)</th>
+          <th>(кол-во)</th>
+          <th>% (кол-во)</th>
+          <th>% (кол-во)</th>
+          <th>% (кол-во)</th>
+          <th>% (кол-во)</th>
+          <th>% (кол-во)</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr [ngClass]="{'select_itog': val.isItog}">
+          <td [ngClass]="{'select_itog': val.isItog}">{{rowIndex + 1}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">
+            {{val.lpuTitle}}
+          </td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.tagCountAllinPds}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.tagCount}}</td>
+          <td [ngClass]="{'select_itog': val.isItog}">{{val.inWorkCount}}</td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/6/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}"><!--{{val.repairCountPercent}}% (-->{{val.repairCount}}<!--)--></a></td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/1/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{val.fullCollectDataSumPercent}}% ({{val.fullCollectDataSum}})</a></td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/2/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{val.handEnterCountPercent}}% ({{val.handEnterCount}})</a></td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/3/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{val.handEnterAutoCountPercent}}% ({{val.handEnterAutoCount}})</a></td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/4/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{val.goodQualityCountPercent}}% ({{val.goodQualityCount}})</a></td>
+          <td *ngIf="(!val.isItog)"><a target="_blank" href="/taglist/{{val.kodlpu}}/5/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{val.bedQualityCountPercent}}% ({{val.bedQualityCount}})</a></td>
+
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}"><!--{{val.repairCountPercent}}% (-->{{val.repairCount}}<!--)--></td>
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}">{{val.fullCollectDataSumPercent}}% ({{val.fullCollectDataSum}})</td>
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}">{{val.handEnterCountPercent}}% ({{val.handEnterCount}})</td>
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}">{{val.handEnterAutoCountPercent}}% ({{val.handEnterAutoCount}})</td>
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}">{{val.goodQualityCountPercent}}% ({{val.goodQualityCount}})</td>
+          <td *ngIf="(val.isItog)" [ngClass]="{'select_itog': val.isItog}">{{val.bedQualityCountPercent}}% ({{val.bedQualityCount}})</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <tr *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{serverValue.tableValue.length + 1}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">
+            {{itogFooter.lpuTitle}}
+          </td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.tagCountAllinPds}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.tagCount}}</td>
+          <td [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.inWorkCount}}</td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/6/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}"><!--{{itogFooter.repairCountPercent}}% (-->{{itogFooter.repairCount}}<!--)--></a></td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/1/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{itogFooter.fullCollectDataSumPercent}}% ({{itogFooter.fullCollectDataSum}})</a></td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/2/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{itogFooter.handEnterCountPercent}}% ({{itogFooter.handEnterCount}})</a></td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/3/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{itogFooter.handEnterAutoCountPercent}}% ({{itogFooter.handEnterAutoCount}})</a></td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/4/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{itogFooter.goodQualityCountPercent}}% ({{itogFooter.goodQualityCount}})</a></td>
+          <td *ngIf="(!itogFooter.isItog)"><a target="_blank" href="/taglist/{{itogFooter.kodlpu}}/5/{{dateStart.toLocaleDateString()}}/{{dateEnd.toLocaleDateString()}}/{{selectedData.value}}">{{itogFooter.bedQualityCountPercent}}% ({{itogFooter.bedQualityCount}})</a></td>
+
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}"><!--{{itogFooter.repairCountPercent}}% (-->{{itogFooter.repairCount}}<!--)--></td>
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.fullCollectDataSumPercent}}% ({{itogFooter.fullCollectDataSum}})</td>
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.handEnterCountPercent}}% ({{itogFooter.handEnterCount}})</td>
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.handEnterAutoCountPercent}}% ({{itogFooter.handEnterAutoCount}})</td>
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.goodQualityCountPercent}}% ({{itogFooter.goodQualityCount}})</td>
+          <td *ngIf="(itogFooter.isItog)" [ngClass]="{'select_itog': itogFooter.isItog}">{{itogFooter.bedQualityCountPercent}}% ({{itogFooter.bedQualityCount}})</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

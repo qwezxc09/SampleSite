@@ -1,0 +1,1054 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WEB_REPORTSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AGR_nsi">
+    <Key>
+      <PropertyRef Name="id_agr" />
+    </Key>
+    <Property Name="id_agr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodKs" Type="Int32" Nullable="false" />
+    <Property Name="kodKc" Type="Int32" Nullable="false" />
+    <Property Name="kodAgr" Type="Int32" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AsoduDataKc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TagName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kodKS" Type="Int16" Nullable="false" />
+    <Property Name="kodKC" Type="Int16" Nullable="false" />
+    <Property Name="OPCQuality" Type="Int32" Nullable="false" />
+    <Property Name="TagValue" Type="Decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduDataLPU">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TagName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="kodLPU" Type="Int16" Nullable="false" />
+    <Property Name="OPCQuality" Type="Int32" Nullable="false" />
+    <Property Name="TagValue" Type="Decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduManualTags">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TagName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OPCQuality" Type="Int32" Nullable="false" />
+    <Property Name="TagValue" Type="Decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="AsoduStatistic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodLpu" Type="Int32" Nullable="false" />
+    <Property Name="handEnterCount" Type="Int32" Nullable="false" />
+    <Property Name="handEnterAutoCount" Type="Int32" Nullable="false" />
+    <Property Name="goodQualityCount" Type="Int32" Nullable="false" />
+    <Property Name="tagCount" Type="Int32" Nullable="false" />
+    <Property Name="createDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="repairCount" Type="Int32" Nullable="false" />
+    <Property Name="bedQualityCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AsoduStatisticNew">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodLpu" Type="Int32" Nullable="false" />
+    <Property Name="handEnterCount" Type="Int32" Nullable="false" />
+    <Property Name="handEnterAutoCount" Type="Int32" Nullable="false" />
+    <Property Name="goodQualityCount" Type="Int32" Nullable="false" />
+    <Property Name="tagCount" Type="Int32" Nullable="false" />
+    <Property Name="createDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="repairCount" Type="Int32" Nullable="false" />
+    <Property Name="bedQualityCount" Type="Int32" />
+    <Property Name="tagCountAllInPDS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Deleted_nsi_obj">
+    <Key>
+      <PropertyRef Name="id_deleted_nsi_obj" />
+    </Key>
+    <Property Name="id_deleted_nsi_obj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deleted_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Interval_nsi" Relationship="Self.FK_Interval_nsi_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="Interval_nsi" />
+    <NavigationProperty Name="KC_nsi" Relationship="Self.FK_KC_nsi_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="KC_nsi" />
+    <NavigationProperty Name="KS_nsi" Relationship="Self.FK_KS_nsi_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="KS_nsi" />
+    <NavigationProperty Name="LPU_nsi" Relationship="Self.FK_LPU_nsi_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="LPU_nsi" />
+    <NavigationProperty Name="Telemehanica_levels" Relationship="Self.FK_Telemehanica_levels_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="Telemehanica_levels" />
+    <NavigationProperty Name="Telemehanica_types" Relationship="Self.FK_Telemehanica_types_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="Telemehanica_types" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Deleted_nsi_obj" FromRole="Deleted_nsi_obj" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Events_history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="type" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="object_id" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Events_history_User" FromRole="Events_history" ToRole="User" />
+  </EntityType>
+  <EntityType Name="IasInfo">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="TagName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InputSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EngUnits" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDObj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SAUType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDSauType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Interval_nsi">
+    <Key>
+      <PropertyRef Name="id_interval" />
+    </Key>
+    <Property Name="id_interval" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <Property Name="sort_order" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_Interval_nsi_Deleted_nsi_obj" FromRole="Interval_nsi" ToRole="Deleted_nsi_obj" />
+  </EntityType>
+  <EntityType Name="IusTags">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="TagName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Algorithm" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="InputSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="st108_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="st110_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="st111_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="st112_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="State_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value_Open_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value_Close_InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Value_HiHi_Limit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value_Hi_Limit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value_LoLo_Limit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value_Lo_Limit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsConvert" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IsHand" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Template" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Container" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ContainedName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MinEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaxEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MinRaw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaxRaw" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EngUnits" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Scale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_telemehanica_types" Type="Int32" />
+    <Property Name="id_telemehanica_levels" Type="Int32" />
+    <Property Name="kodLpu" Type="Int32" />
+    <Property Name="kodKs" Type="Int32" />
+    <Property Name="kodKc" Type="Int32" />
+    <Property Name="kodAgr" Type="Int32" />
+    <Property Name="IDObj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Telemehanica_levels" Relationship="Self.FK_IusTags_Telemehanica_levels" FromRole="IusTags" ToRole="Telemehanica_levels" />
+  </EntityType>
+  <EntityType Name="KC_nsi">
+    <Key>
+      <PropertyRef Name="id_kc" />
+    </Key>
+    <Property Name="id_kc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_ks" Type="Int32" Nullable="false" />
+    <Property Name="kodKs" Type="Int32" Nullable="false" />
+    <Property Name="kodKc" Type="Int32" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_KC_nsi_Deleted_nsi_obj" FromRole="KC_nsi" ToRole="Deleted_nsi_obj" />
+    <NavigationProperty Name="KS_nsi" Relationship="Self.FK_KC_nsi_KS_nsi" FromRole="KC_nsi" ToRole="KS_nsi" />
+  </EntityType>
+  <EntityType Name="KS_nsi">
+    <Key>
+      <PropertyRef Name="id_ks" />
+    </Key>
+    <Property Name="id_ks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodks" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="stitle" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ks_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_lpu" Type="Int32" />
+    <Property Name="ks_lpu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_KS_nsi_Deleted_nsi_obj" FromRole="KS_nsi" ToRole="Deleted_nsi_obj" />
+    <NavigationProperty Name="KC_nsi" Relationship="Self.FK_KC_nsi_KS_nsi" FromRole="KS_nsi" ToRole="KC_nsi" />
+    <NavigationProperty Name="LPU_nsi" Relationship="Self.FK_KS_nsi_LPU_nsi" FromRole="KS_nsi" ToRole="LPU_nsi" />
+  </EntityType>
+  <EntityType Name="LPU_nsi">
+    <Key>
+      <PropertyRef Name="id_lpu" />
+    </Key>
+    <Property Name="id_lpu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodlpu" Type="Int32" Nullable="false" />
+    <Property Name="kodlpu_old" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <Property Name="kodlpu_union" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_LPU_nsi_Deleted_nsi_obj" FromRole="LPU_nsi" ToRole="Deleted_nsi_obj" />
+    <NavigationProperty Name="KS_nsi" Relationship="Self.FK_KS_nsi_LPU_nsi" FromRole="LPU_nsi" ToRole="KS_nsi" />
+  </EntityType>
+  <EntityType Name="Quality_types">
+    <Key>
+      <PropertyRef Name="id_quality_types" />
+    </Key>
+    <Property Name="id_quality_types" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SauType_nsi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Telemehanica_levels">
+    <Key>
+      <PropertyRef Name="id_telemehanica_levels" />
+    </Key>
+    <Property Name="id_telemehanica_levels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="template" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_Telemehanica_levels_Deleted_nsi_obj" FromRole="Telemehanica_levels" ToRole="Deleted_nsi_obj" />
+    <NavigationProperty Name="IusTags" Relationship="Self.FK_IusTags_Telemehanica_levels" FromRole="Telemehanica_levels" ToRole="IusTags" />
+  </EntityType>
+  <EntityType Name="Telemehanica_types">
+    <Key>
+      <PropertyRef Name="id_telemehanica_types" />
+    </Key>
+    <Property Name="id_telemehanica_types" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_Telemehanica_types_Deleted_nsi_obj" FromRole="Telemehanica_types" ToRole="Deleted_nsi_obj" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="is_active" Type="Boolean" Nullable="false" />
+    <Property Name="last_login" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_deleted_nsi_obj" Type="Int32" />
+    <NavigationProperty Name="Deleted_nsi_obj" Relationship="Self.FK_User_Deleted_nsi_obj" FromRole="User" ToRole="Deleted_nsi_obj" />
+    <NavigationProperty Name="Events_history" Relationship="Self.FK_Events_history_User" FromRole="User" ToRole="Events_history" />
+  </EntityType>
+  <EntityType Name="ZAR_NSI">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kodLpu" Type="Int32" Nullable="false" />
+    <Property Name="kodKS" Type="Int32" Nullable="false" />
+    <Property Name="TagName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASDU_ESG_1">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="Session" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTS" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CommonCount" Type="Int32" />
+    <Property Name="PeredDost" Type="Int32" />
+    <Property Name="PeredNeDost" Type="Int32" />
+    <Property Name="Pustoe" Type="Int32" />
+    <Property Name="NeChislo" Type="Int32" />
+    <Property Name="NeVhodVInt" Type="Int32" />
+    <Property Name="OtsutPriv" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ASDU_ESG_1_old">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="Session" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTS" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CommonCount" Type="Int32" />
+    <Property Name="PeredDost" Type="Int32" />
+    <Property Name="PeredNeDost" Type="Int32" />
+    <Property Name="Pustoe" Type="Int32" />
+    <Property Name="NeChislo" Type="Int32" />
+    <Property Name="NeVhodVInt" Type="Int32" />
+    <Property Name="OtsutPriv" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_ASDU_ESG_LPU">
+    <Key>
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="DTS" />
+    </Key>
+    <Property Name="LPUTitle" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Session" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DTS" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CommonCount" Type="Int32" />
+    <Property Name="PeredDost" Type="Int32" />
+    <Property Name="PeredNeDost" Type="Int32" />
+    <Property Name="Pustoe" Type="Int32" />
+    <Property Name="NeChislo" Type="Int32" />
+    <Property Name="NeVhodVInt" Type="Int32" />
+    <Property Name="OtsutPriv" Type="Int32" />
+  </EntityType>
+  <EntityType Name="v_paramASDU_ESG">
+    <Key>
+      <PropertyRef Name="kodLPU" />
+      <PropertyRef Name="DTS" />
+      <PropertyRef Name="MsgType" />
+      <PropertyRef Name="ParamId" />
+      <PropertyRef Name="ErrCategoryId" />
+    </Key>
+    <Property Name="LPUTitle" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="kodLPU" Type="Int16" Nullable="false" />
+    <Property Name="DTS" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SessionTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="MsgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FulParamName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParamId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParamValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ErrCategoryId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_SessionList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_SessionList_old">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Справочник_IUSTags">
+    <Key>
+      <PropertyRef Name="TagName" />
+    </Key>
+    <Property Name="title" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="ks_lpu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kodKc" Type="Int32" />
+    <Property Name="kodAgr" Type="Int32" />
+    <Property Name="TagName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Algorithm" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="InputSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InputSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Interval_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Interval_nsi" Type="Self.Interval_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Interval_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KC_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="KC_nsi" Type="Self.KC_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="KC_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KS_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="KS_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LPU_nsi_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="LPU_nsi" Type="Self.LPU_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="LPU_nsi">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telemehanica_levels_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Telemehanica_levels" Type="Self.Telemehanica_levels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Telemehanica_levels">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Telemehanica_types_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="Telemehanica_types" Type="Self.Telemehanica_types" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="Telemehanica_types">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Deleted_nsi_obj">
+    <End Role="Deleted_nsi_obj" Type="Self.Deleted_nsi_obj" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deleted_nsi_obj">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_deleted_nsi_obj" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_history_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Events_history" Type="Self.Events_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Events_history">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IusTags_Telemehanica_levels">
+    <End Role="Telemehanica_levels" Type="Self.Telemehanica_levels" Multiplicity="0..1" />
+    <End Role="IusTags" Type="Self.IusTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Telemehanica_levels">
+        <PropertyRef Name="id_telemehanica_levels" />
+      </Principal>
+      <Dependent Role="IusTags">
+        <PropertyRef Name="id_telemehanica_levels" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KC_nsi_KS_nsi">
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="1" />
+    <End Role="KC_nsi" Type="Self.KC_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KS_nsi">
+        <PropertyRef Name="id_ks" />
+      </Principal>
+      <Dependent Role="KC_nsi">
+        <PropertyRef Name="id_ks" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KS_nsi_LPU_nsi">
+    <End Role="LPU_nsi" Type="Self.LPU_nsi" Multiplicity="0..1" />
+    <End Role="KS_nsi" Type="Self.KS_nsi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LPU_nsi">
+        <PropertyRef Name="id_lpu" />
+      </Principal>
+      <Dependent Role="KS_nsi">
+        <PropertyRef Name="id_lpu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WEB_REPORTSContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AGR_nsi" EntityType="Self.AGR_nsi" />
+    <EntitySet Name="AsoduDataKc" EntityType="Self.AsoduDataKc" />
+    <EntitySet Name="AsoduDataLPU" EntityType="Self.AsoduDataLPU" />
+    <EntitySet Name="AsoduManualTags" EntityType="Self.AsoduManualTags" />
+    <EntitySet Name="AsoduStatistic" EntityType="Self.AsoduStatistic" />
+    <EntitySet Name="AsoduStatisticNew" EntityType="Self.AsoduStatisticNew" />
+    <EntitySet Name="Deleted_nsi_obj" EntityType="Self.Deleted_nsi_obj" />
+    <EntitySet Name="Events_history" EntityType="Self.Events_history" />
+    <EntitySet Name="IasInfo" EntityType="Self.IasInfo" />
+    <EntitySet Name="Interval_nsi" EntityType="Self.Interval_nsi" />
+    <EntitySet Name="IusTags" EntityType="Self.IusTags" />
+    <EntitySet Name="KC_nsi" EntityType="Self.KC_nsi" />
+    <EntitySet Name="KS_nsi" EntityType="Self.KS_nsi" />
+    <EntitySet Name="LPU_nsi" EntityType="Self.LPU_nsi" />
+    <EntitySet Name="Quality_types" EntityType="Self.Quality_types" />
+    <EntitySet Name="SauType_nsi" EntityType="Self.SauType_nsi" />
+    <EntitySet Name="Telemehanica_levels" EntityType="Self.Telemehanica_levels" />
+    <EntitySet Name="Telemehanica_types" EntityType="Self.Telemehanica_types" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="ZAR_NSI" EntityType="Self.ZAR_NSI" />
+    <EntitySet Name="ASDU_ESG_1" EntityType="Self.ASDU_ESG_1" />
+    <EntitySet Name="ASDU_ESG_1_old" EntityType="Self.ASDU_ESG_1_old" />
+    <EntitySet Name="v_ASDU_ESG_LPU" EntityType="Self.v_ASDU_ESG_LPU" />
+    <EntitySet Name="v_paramASDU_ESG" EntityType="Self.v_paramASDU_ESG" />
+    <EntitySet Name="v_SessionList" EntityType="Self.v_SessionList" />
+    <EntitySet Name="v_SessionList_old" EntityType="Self.v_SessionList_old" />
+    <EntitySet Name="Справочник_IUSTags" EntityType="Self.Справочник_IUSTags" />
+    <AssociationSet Name="FK_Interval_nsi_Deleted_nsi_obj" Association="Self.FK_Interval_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Interval_nsi" EntitySet="Interval_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KC_nsi_Deleted_nsi_obj" Association="Self.FK_KC_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="KC_nsi" EntitySet="KC_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KS_nsi_Deleted_nsi_obj" Association="Self.FK_KS_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LPU_nsi_Deleted_nsi_obj" Association="Self.FK_LPU_nsi_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="LPU_nsi" EntitySet="LPU_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telemehanica_levels_Deleted_nsi_obj" Association="Self.FK_Telemehanica_levels_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Telemehanica_levels" EntitySet="Telemehanica_levels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Telemehanica_types_Deleted_nsi_obj" Association="Self.FK_Telemehanica_types_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="Telemehanica_types" EntitySet="Telemehanica_types" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Deleted_nsi_obj" Association="Self.FK_User_Deleted_nsi_obj">
+      <End Role="Deleted_nsi_obj" EntitySet="Deleted_nsi_obj" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_history_User" Association="Self.FK_Events_history_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Events_history" EntitySet="Events_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IusTags_Telemehanica_levels" Association="Self.FK_IusTags_Telemehanica_levels">
+      <End Role="Telemehanica_levels" EntitySet="Telemehanica_levels" />
+      <End Role="IusTags" EntitySet="IusTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KC_nsi_KS_nsi" Association="Self.FK_KC_nsi_KS_nsi">
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+      <End Role="KC_nsi" EntitySet="KC_nsi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KS_nsi_LPU_nsi" Association="Self.FK_KS_nsi_LPU_nsi">
+      <End Role="LPU_nsi" EntitySet="LPU_nsi" />
+      <End Role="KS_nsi" EntitySet="KS_nsi" />
+    </AssociationSet>
+    <FunctionImport Name="get_Asodu_data" />
+    <FunctionImport Name="get_Asodu_dataKC_modern">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_dataLPU_modern">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsKC" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsKC_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodKS" Mode="In" Type="Int16" />
+      <Parameter Name="kodKC" Mode="In" Type="Int16" />
+      <Parameter Name="minLen" Mode="In" Type="Int32" />
+      <Parameter Name="maxLen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsKC_2" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsKC_2_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodKS" Mode="In" Type="Int16" />
+      <Parameter Name="kodKC" Mode="In" Type="Int16" />
+      <Parameter Name="lenFilt" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsLPU" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsLPU_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodLPU" Mode="In" Type="Int16" />
+      <Parameter Name="minLen" Mode="In" Type="Int32" />
+      <Parameter Name="maxLen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsLPU_2" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsLPU_2_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodLPU" Mode="In" Type="Int16" />
+      <Parameter Name="lenFilt" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsManualTags" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsManualTags_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodKS" Mode="In" Type="Int16" />
+      <Parameter Name="kodKC" Mode="In" Type="Int16" />
+      <Parameter Name="tagType" Mode="In" Type="String" />
+      <Parameter Name="minLen" Mode="In" Type="Int32" />
+      <Parameter Name="maxLen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsManualTags_0ld" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsManualTags_0ld_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodKS" Mode="In" Type="Int16" />
+      <Parameter Name="kodKC" Mode="In" Type="Int16" />
+      <Parameter Name="tagType" Mode="In" Type="String" />
+      <Parameter Name="minLen" Mode="In" Type="Int32" />
+      <Parameter Name="maxLen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_intervalsManualTags1" ReturnType="Collection(WEB_REPORTSModel.get_Asodu_intervalsManualTags1_Result)">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+      <Parameter Name="kodKS" Mode="In" Type="Int16" />
+      <Parameter Name="kodKC" Mode="In" Type="Int16" />
+      <Parameter Name="minLen" Mode="In" Type="Int32" />
+      <Parameter Name="maxLen" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_ManualTags">
+      <Parameter Name="dtbegin" Mode="In" Type="DateTime" />
+      <Parameter Name="dtend" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="get_Asodu_StatisticData" />
+    <FunctionImport Name="hp_GetAsduEsg1" ReturnType="Collection(WEB_REPORTSModel.hp_GetAsduEsg1_Result)">
+      <Parameter Name="sesion" Mode="In" Type="String" />
+      <Parameter Name="Dt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetAsduEsg1Period" ReturnType="Collection(WEB_REPORTSModel.hp_GetAsduEsg1Period_Result)">
+      <Parameter Name="sesion" Mode="In" Type="String" />
+      <Parameter Name="Dt" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetAsduEsgLPU" ReturnType="Collection(WEB_REPORTSModel.hp_GetAsduEsgLPU_Result)">
+      <Parameter Name="sesion" Mode="In" Type="String" />
+      <Parameter Name="Dt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetAsduEsgLPUPeriod" ReturnType="Collection(WEB_REPORTSModel.hp_GetAsduEsgLPUPeriod_Result)">
+      <Parameter Name="sesion" Mode="In" Type="String" />
+      <Parameter Name="Dt" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetDoGroupKcList" ReturnType="Collection(WEB_REPORTSModel.hp_GetDoGroupKcList_Result)" />
+    <FunctionImport Name="hp_GetHandEnterData">
+      <Parameter Name="kodlpu" Mode="In" Type="Int32" />
+      <Parameter Name="kodks" Mode="In" Type="Int32" />
+      <Parameter Name="dt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetLiveStatisticData" />
+    <FunctionImport Name="hp_GetLiveStatisticData_History" />
+    <FunctionImport Name="hp_GetLiveStatisticData_Repair" />
+    <FunctionImport Name="hp_GetLiveStatisticData_RepairNew">
+      <Parameter Name="objectString" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetLiveTagList">
+      <Parameter Name="kodlpu" Mode="In" Type="Int32" />
+      <Parameter Name="qualitytypeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetObjTypeList" ReturnType="Collection(WEB_REPORTSModel.hp_GetObjTypeList_Result)" />
+    <FunctionImport Name="hp_GetParamAsduEsg" ReturnType="Collection(WEB_REPORTSModel.hp_GetParamAsduEsg_Result)">
+      <Parameter Name="lputitle" Mode="In" Type="String" />
+      <Parameter Name="ErrCategoryId" Mode="In" Type="Int32" />
+      <Parameter Name="sesion" Mode="In" Type="String" />
+      <Parameter Name="Dt" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetPeriodChartData" ReturnType="Collection(WEB_REPORTSModel.hp_GetPeriodChartData_Result)">
+      <Parameter Name="kodlpu" Mode="In" Type="Int32" />
+      <Parameter Name="startDt" Mode="In" Type="String" />
+      <Parameter Name="endDt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetPeriodStatisticData" ReturnType="Collection(WEB_REPORTSModel.hp_GetPeriodStatisticData_Result)">
+      <Parameter Name="startDt" Mode="In" Type="String" />
+      <Parameter Name="endDt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetPeriodStatisticData_old" ReturnType="Collection(WEB_REPORTSModel.hp_GetPeriodStatisticData_old_Result)">
+      <Parameter Name="startDt" Mode="In" Type="String" />
+      <Parameter Name="endDt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetPeriodTagList">
+      <Parameter Name="kodlpu" Mode="In" Type="Int32" />
+      <Parameter Name="qualitytypeId" Mode="In" Type="Int32" />
+      <Parameter Name="startDt" Mode="In" Type="String" />
+      <Parameter Name="endDt" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetTagTypeList" ReturnType="Collection(WEB_REPORTSModel.hp_GetTagTypeList_Result)" />
+    <FunctionImport Name="hp_GetTelemehanica_SauKc" ReturnType="Collection(String)">
+      <Parameter Name="kodLpu" Mode="In" Type="Int32" />
+      <Parameter Name="kodKs" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="hp_GetTelemehanicaConnectSystemData" ReturnType="Collection(WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemData_Result)" />
+    <FunctionImport Name="hp_GetTelemehanicaConnectSystemGpaData" ReturnType="Collection(WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaData_Result)" />
+    <FunctionImport Name="hp_GetTelemehanicaConnectSystemGpaDataByKod" ReturnType="Collection(WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemGpaDataByKod_Result)" />
+    <FunctionImport Name="hp_GetTelemehanicaConnectSystemKcData" ReturnType="Collection(WEB_REPORTSModel.hp_GetTelemehanicaConnectSystemKcData_Result)" />
+    <FunctionImport Name="hp_GetTelemehanicaReportData">
+      <Parameter Name="lpu_id" Mode="In" Type="Int32" />
+      <Parameter Name="ks_id" Mode="In" Type="Int32" />
+      <Parameter Name="level_id" Mode="In" Type="Int32" />
+      <Parameter Name="telemehanicatype_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rts_GetStatisticDataFromLpu">
+      <Parameter Name="startDt" Mode="In" Type="String" />
+      <Parameter Name="endDt" Mode="In" Type="String" />
+      <Parameter Name="kodLPU" Mode="In" Type="Int16" />
+      <Parameter Name="forBDRV2" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <EntitySet Name="ZAR_STATES_ALL" EntityType="WEB_REPORTSModel.ZAR_STATES_ALL" />
+    <EntitySet Name="ZAR_NSI_WEB" EntityType="WEB_REPORTSModel.ZAR_NSI_WEB" />
+  </EntityContainer>
+  <ComplexType Name="get_Asodu_intervalsKC_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TagValue1" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Decimal" Name="TagValue2" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Int16" Name="kodKS" Nullable="true" />
+    <Property Type="Int16" Name="kodKC" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="KSName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsKC_2_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TagValue1" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Decimal" Name="TagValue2" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Int16" Name="kodKS" Nullable="true" />
+    <Property Type="Int16" Name="kodKC" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="KSName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsLPU_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TagValue1" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Decimal" Name="TagValue2" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Int16" Name="kodLPU" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsLPU_2_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TagValue1" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Decimal" Name="TagValue2" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Int16" Name="kodLPU" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsManualTags_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TagValue1" Nullable="true" />
+    <Property Type="Int32" Name="TagValue2" Nullable="true" />
+    <Property Type="Int16" Name="kodKS" Nullable="true" />
+    <Property Type="Int16" Name="kodKC" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="KSName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TagName" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="TagDescription" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="TagType" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsManualTags_0ld_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="TagValue1" Nullable="true" />
+    <Property Type="Int32" Name="TagValue2" Nullable="true" />
+    <Property Type="Int16" Name="kodKS" Nullable="true" />
+    <Property Type="Int16" Name="kodKC" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="KSName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TagName" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="TagDescription" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="TagType" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="get_Asodu_intervalsManualTags1_Result">
+    <Property Type="DateTime" Name="dt1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dt2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="TagValue1" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Decimal" Name="TagValue2" Nullable="true" Precision="4" Scale="1" />
+    <Property Type="Int16" Name="kodKS" Nullable="true" />
+    <Property Type="Int16" Name="kodKC" Nullable="true" />
+    <Property Type="Int64" Name="grpId" Nullable="true" />
+    <Property Type="Int32" Name="LenSec" Nullable="true" />
+    <Property Type="String" Name="KSName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="hp_GetAsduEsg1_Result">
+    <Property Type="String" Name="Session" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="MsgType" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DTS" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="CommonCount" Nullable="true" />
+    <Property Type="Int32" Name="PeredDost" Nullable="true" />
+    <Property Type="Int32" Name="PeredNeDost" Nullable="true" />
+    <Property Type="Int32" Name="Pustoe" Nullable="true" />
+    <Property Type="Int32" Name="NeChislo" Nullable="true" />
+    <Property Type="Int32" Name="NeVhodVInt" Nullable="true" />
+    <Property Type="Int32" Name="OtsutPriv" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetAsduEsg1Period_Result">
+    <Property Type="String" Name="Session" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="MsgType" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DTS" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="CommonCount" Nullable="true" />
+    <Property Type="Int32" Name="PeredDost" Nullable="true" />
+    <Property Type="Int32" Name="PeredNeDost" Nullable="true" />
+    <Property Type="Int32" Name="Pustoe" Nullable="true" />
+    <Property Type="Int32" Name="NeChislo" Nullable="true" />
+    <Property Type="Int32" Name="NeVhodVInt" Nullable="true" />
+    <Property Type="Int32" Name="OtsutPriv" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetAsduEsgLPU_Result">
+    <Property Type="String" Name="LPUTitle" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Session" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="MsgType" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DTS" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="CommonCount" Nullable="true" />
+    <Property Type="Int32" Name="PeredDost" Nullable="true" />
+    <Property Type="Int32" Name="PeredNeDost" Nullable="true" />
+    <Property Type="Int32" Name="Pustoe" Nullable="true" />
+    <Property Type="Int32" Name="NeChislo" Nullable="true" />
+    <Property Type="Int32" Name="NeVhodVInt" Nullable="true" />
+    <Property Type="Int32" Name="OtsutPriv" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetAsduEsgLPUPeriod_Result">
+    <Property Type="String" Name="LPUTitle" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Session" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="MsgType" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DTS" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="CommonCount" Nullable="true" />
+    <Property Type="Int32" Name="PeredDost" Nullable="true" />
+    <Property Type="Int32" Name="PeredNeDost" Nullable="true" />
+    <Property Type="Int32" Name="Pustoe" Nullable="true" />
+    <Property Type="Int32" Name="NeChislo" Nullable="true" />
+    <Property Type="Int32" Name="NeVhodVInt" Nullable="true" />
+    <Property Type="Int32" Name="OtsutPriv" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetDoGroupKcList_Result">
+    <Property Type="Int32" Name="kodKS" Nullable="false" />
+    <Property Type="String" Name="KsTitle" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="kodKC" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="hp_GetObjTypeList_Result">
+    <Property Type="Int16" Name="idTagType" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="hp_GetParamAsduEsg_Result">
+    <Property Type="String" Name="LPUTitle" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="kodLPU" Nullable="false" />
+    <Property Type="DateTime" Name="DTS" Nullable="false" Precision="23" />
+    <Property Type="String" Name="SessionTitle" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="MsgType" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FulParamName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="TagName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ParamId" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="ParamValue" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ErrCategoryId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="hp_GetPeriodChartData_Result">
+    <Property Type="DateTime" Name="createDt" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="tagCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterAutoCount" Nullable="true" />
+    <Property Type="Int32" Name="goodQualityCount" Nullable="true" />
+    <Property Type="Int32" Name="allgoodQualityCount" Nullable="true" />
+    <Property Type="Int32" Name="repairCount" Nullable="true" />
+    <Property Type="Int32" Name="bedQualityCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetPeriodStatisticData_Result">
+    <Property Type="String" Name="lpuTitle" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="kodlpu" Nullable="true" />
+    <Property Type="Int32" Name="id_deleted_nsi_obj" Nullable="true" />
+    <Property Type="Int32" Name="tagCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterAutoCount" Nullable="true" />
+    <Property Type="Int32" Name="goodQualityCount" Nullable="true" />
+    <Property Type="Int32" Name="repairCount" Nullable="true" />
+    <Property Type="Int32" Name="bedQualityCount" Nullable="true" />
+    <Property Type="Int32" Name="tagCountAllInPDS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetPeriodStatisticData_old_Result">
+    <Property Type="String" Name="lpuTitle" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="kodlpu" Nullable="false" />
+    <Property Type="Int32" Name="id_deleted_nsi_obj" Nullable="true" />
+    <Property Type="Int32" Name="tagCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterCount" Nullable="true" />
+    <Property Type="Int32" Name="handEnterAutoCount" Nullable="true" />
+    <Property Type="Int32" Name="goodQualityCount" Nullable="true" />
+    <Property Type="Int32" Name="repairCount" Nullable="true" />
+    <Property Type="Int32" Name="bedQualityCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetTagTypeList_Result">
+    <Property Type="Int16" Name="idTagType" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="hp_GetTelemehanicaConnectSystemData_Result">
+    <Property Type="String" Name="ks_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="kcCount" Nullable="true" />
+    <Property Type="Int32" Name="kodlpu" Nullable="false" />
+    <Property Type="Int32" Name="kodks" Nullable="true" />
+    <Property Type="Int32" Name="agrCount" Nullable="true" />
+    <Property Type="String" Name="sau_kc_1" Nullable="true" />
+    <Property Type="String" Name="sau_kc_2" Nullable="true" />
+    <Property Type="String" Name="sau_kc_3" Nullable="true" />
+    <Property Type="String" Name="sau_kc_4" Nullable="true" />
+    <Property Type="String" Name="sau_kc_5" Nullable="true" />
+    <Property Type="String" Name="sau_kc_6" Nullable="true" />
+    <Property Type="String" Name="sau_kc_7" Nullable="true" />
+    <Property Type="String" Name="sau_kc_8" Nullable="true" />
+    <Property Type="String" Name="sau_kc_9" Nullable="true" />
+    <Property Type="String" Name="sau_kc_10" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetTelemehanicaConnectSystemGpaData_Result">
+    <Property Type="String" Name="ks_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="kcCount" Nullable="true" />
+    <Property Type="Int32" Name="kodlpu" Nullable="false" />
+    <Property Type="Int32" Name="kodks" Nullable="true" />
+    <Property Type="Int32" Name="agrCount" Nullable="true" />
+    <Property Type="String" Name="sau_kc_1" Nullable="true" />
+    <Property Type="String" Name="tag_kc_1" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc1" Nullable="true" />
+    <Property Type="String" Name="sau_kc_2" Nullable="true" />
+    <Property Type="String" Name="tag_kc_2" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc2" Nullable="true" />
+    <Property Type="String" Name="sau_kc_3" Nullable="true" />
+    <Property Type="String" Name="tag_kc_3" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc3" Nullable="true" />
+    <Property Type="String" Name="sau_kc_4" Nullable="true" />
+    <Property Type="String" Name="tag_kc_4" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc4" Nullable="true" />
+    <Property Type="String" Name="sau_kc_5" Nullable="true" />
+    <Property Type="String" Name="tag_kc_5" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc5" Nullable="true" />
+    <Property Type="String" Name="sau_kc_6" Nullable="true" />
+    <Property Type="String" Name="tag_kc_6" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc6" Nullable="true" />
+    <Property Type="String" Name="sau_kc_7" Nullable="true" />
+    <Property Type="String" Name="tag_kc_7" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc7" Nullable="true" />
+    <Property Type="String" Name="sau_kc_8" Nullable="true" />
+    <Property Type="String" Name="tag_kc_8" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc8" Nullable="true" />
+    <Property Type="String" Name="sau_kc_9" Nullable="true" />
+    <Property Type="String" Name="tag_kc_9" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc9" Nullable="true" />
+    <Property Type="String" Name="sau_kc_10" Nullable="true" />
+    <Property Type="String" Name="tag_kc_10" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc10" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetTelemehanicaConnectSystemGpaDataByKod_Result">
+    <Property Type="String" Name="ks_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="kcCount" Nullable="true" />
+    <Property Type="Int32" Name="kodlpu" Nullable="false" />
+    <Property Type="Int32" Name="kodks" Nullable="true" />
+    <Property Type="Int32" Name="agrCount" Nullable="true" />
+    <Property Type="String" Name="sau_kc_1" Nullable="true" />
+    <Property Type="String" Name="tag_kc_1" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc1" Nullable="true" />
+    <Property Type="String" Name="sau_kc_2" Nullable="true" />
+    <Property Type="String" Name="tag_kc_2" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc2" Nullable="true" />
+    <Property Type="String" Name="sau_kc_3" Nullable="true" />
+    <Property Type="String" Name="tag_kc_3" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc3" Nullable="true" />
+    <Property Type="String" Name="sau_kc_4" Nullable="true" />
+    <Property Type="String" Name="tag_kc_4" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc4" Nullable="true" />
+    <Property Type="String" Name="sau_kc_5" Nullable="true" />
+    <Property Type="String" Name="tag_kc_5" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc5" Nullable="true" />
+    <Property Type="String" Name="sau_kc_6" Nullable="true" />
+    <Property Type="String" Name="tag_kc_6" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc6" Nullable="true" />
+    <Property Type="String" Name="sau_kc_7" Nullable="true" />
+    <Property Type="String" Name="tag_kc_7" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc7" Nullable="true" />
+    <Property Type="String" Name="sau_kc_8" Nullable="true" />
+    <Property Type="String" Name="tag_kc_8" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc8" Nullable="true" />
+    <Property Type="String" Name="sau_kc_9" Nullable="true" />
+    <Property Type="String" Name="tag_kc_9" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc9" Nullable="true" />
+    <Property Type="String" Name="sau_kc_10" Nullable="true" />
+    <Property Type="String" Name="tag_kc_10" Nullable="true" />
+    <Property Type="Int32" Name="agrcount_kc10" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="hp_GetTelemehanicaConnectSystemKcData_Result">
+    <Property Type="String" Name="ks_name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="kcCount" Nullable="true" />
+    <Property Type="Int32" Name="kodlpu" Nullable="false" />
+    <Property Type="Int32" Name="kodks" Nullable="true" />
+    <Property Type="Int32" Name="agrCount" Nullable="true" />
+    <Property Type="String" Name="sau_kc_1" Nullable="true" />
+    <Property Type="String" Name="tag_kc_1" Nullable="true" />
+    <Property Type="String" Name="sau_kc_2" Nullable="true" />
+    <Property Type="String" Name="tag_kc_2" Nullable="true" />
+    <Property Type="String" Name="sau_kc_3" Nullable="true" />
+    <Property Type="String" Name="tag_kc_3" Nullable="true" />
+    <Property Type="String" Name="sau_kc_4" Nullable="true" />
+    <Property Type="String" Name="tag_kc_4" Nullable="true" />
+    <Property Type="String" Name="sau_kc_5" Nullable="true" />
+    <Property Type="String" Name="tag_kc_5" Nullable="true" />
+    <Property Type="String" Name="sau_kc_6" Nullable="true" />
+    <Property Type="String" Name="tag_kc_6" Nullable="true" />
+    <Property Type="String" Name="sau_kc_7" Nullable="true" />
+    <Property Type="String" Name="tag_kc_7" Nullable="true" />
+    <Property Type="String" Name="sau_kc_8" Nullable="true" />
+    <Property Type="String" Name="tag_kc_8" Nullable="true" />
+    <Property Type="String" Name="sau_kc_9" Nullable="true" />
+    <Property Type="String" Name="tag_kc_9" Nullable="true" />
+    <Property Type="String" Name="sau_kc_10" Nullable="true" />
+    <Property Type="String" Name="tag_kc_10" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="ZAR_STATES_ALL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TagName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Quality" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZAR_NSI_WEB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LPU_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="KP_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="kodZAR_SLTM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="kodZAR_SODU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Tagname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ShortZAR_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LongZAR_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

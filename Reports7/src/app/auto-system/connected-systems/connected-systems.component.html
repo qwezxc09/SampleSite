@@ -1,0 +1,241 @@
+<div class="container-fluid">
+  <div class="row" style="margin-left:1rem;margin-top:1rem;margin-right:1rem">
+    <div class="container1">
+      <p style="padding-top:8px;">Подключенные к ОСОДУ системы автоматизации по стостоянию на {{dateNow | date: 'dd.MM.yyyy'}}</p>
+    </div>
+  </div>
+  <br />
+  <div class="p-grid p-justify-start" style="margin-left:5px">
+    <div style="margin-left:10px">
+      <p-selectButton [options]="dataTypes" [(ngModel)]="selectedData" optionLabel="name"></p-selectButton>
+    </div>
+    <div style="margin-left:10px">
+      <button pButton type="button" *ngIf="loading==false" label="Выбрать данные" icon="pi pi-check" iconPos="left" (click)="createReport()" pTooltip="Сформировать отчет"></button>
+      <button pButton *ngIf="loading==true" [disabled]="true" label="Выбрать данные" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </div>
+    <div style="margin-left:10px">
+      <button pButton *ngIf="loadingExcel==false" label="Выгрузить в Excel" icon="pi pi-file-excel" (click)="createExcelReport()" iconPos="left" pTooltip="Сформировать Excel отчет"></button>
+      <button pButton *ngIf="loadingExcel==true" [disabled]="true" label="Выгрузить в Excel" icon="pi pi-spin pi-spinner" iconPos="left"></button>
+    </div>
+  </div>
+
+  <div class="ui-g" style="margin:1rem;">
+    <p-panel *ngIf="isError" header="Ошибка">
+      <p style="color:red">{{errorMsg}}</p>
+    </p-panel>
+    <p-table [loading]="loading" [value]="tableValuesGpa" [scrollable]="true" [style]="{width:'100%'}" scrollHeight="700px" styleClass="p-datatable-gridlines">
+      <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+          <col style="width:50px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+          <col style="width:150px">
+          <col style="width:70px">
+          <col *ngIf="selectedData.value === 2" style="width:70px">
+        </colgroup>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th rowspan="2">№ п/п</th>
+          <th rowspan="2" style="">Наимено-вание КС</th>
+          <th rowspan="2">Цеха</th>
+          <th rowspan="2">ГПА</th>
+          <ng-container *ngFor="let kc of kcCount">
+            <th *ngIf="selectedData.value === 2" colspan="3" style="text-align:center">
+              {{kc.Title}}
+            </th>
+            <th *ngIf="selectedData.value === 1" colspan="2" style="text-align:center">
+              {{kc.Title}}
+            </th>
+          </ng-container>
+        </tr>
+        <tr>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+          <th>Типы САУ</th>
+          <th>Кол-во тегов</th>
+          <th *ngIf="selectedData.value === 2">Кол-во агр.</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-val let-rowIndex="rowIndex">
+        <tr>
+          <td>{{rowIndex+1}}</td>
+          <td>{{val.KsTitle}}</td>
+          <td>{{val.KcCount}}</td>
+          <td>{{val.GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[0].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[0].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[0].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[1].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[1].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[1].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[2].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[2].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[2].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[3].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[3].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[3].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[4].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[4].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[4].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[5].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[5].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[5].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[6].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[6].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[6].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[7].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[7].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[7].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[8].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[8].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[8].GpaCount}}</td>
+          <td>
+            <div *ngFor="let v of val.KcDataList[9].SauTypeList">
+              {{v}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let c of val.KcDataList[9].TagCountList">
+              {{c}}
+            </div>
+          </td>
+          <td *ngIf="selectedData.value === 2">{{val.KcDataList[9].GpaCount}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td>
+            Нет данных
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+

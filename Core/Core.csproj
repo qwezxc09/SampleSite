@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{135D120D-480A-49E5-99BA-EE231D172458}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entity\AGR_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ASDU_ESG_1.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ASDU_ESG_1_old.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AsoduDataKc.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AsoduDataLPU.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AsoduManualTags.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AsoduStatistic.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AsoduStatisticNew.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Deleted_nsi_obj.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DTO\AsoduIntervalKC_DTO.cs" />
+    <Compile Include="Entity\DTO\AsoduIntervalsLPU_DTO.cs" />
+    <Compile Include="Entity\DTO\AsoduIntervalsManualTags_DTO.cs" />
+    <Compile Include="Entity\DTO\GetParamList_DTO.cs" />
+    <Compile Include="Entity\DTO\GetPeriodTagList_DTO.cs" />
+    <Compile Include="Entity\DTO\GetTagList_DTO.cs" />
+    <Compile Include="Entity\DTO\NSI_Intervals_DTO.cs" />
+    <Compile Include="Entity\DTO\NSI_KC_DTO.cs" />
+    <Compile Include="Entity\DTO\NSI_KS_DTO.cs" />
+    <Compile Include="Entity\DTO\NSI_Lpu_DTO.cs" />
+    <Compile Include="Entity\DTO\ObjTypeList_DTO.cs" />
+    <Compile Include="Entity\DTO\QualityTypes_DTO.cs" />
+    <Compile Include="Entity\DTO\SessionList_DTO.cs" />
+    <Compile Include="Entity\DTO\SpGetAsduEsgLPU_DTO.cs" />
+    <Compile Include="Entity\DTO\SpGetAsduEsg_DTO.cs" />
+    <Compile Include="Entity\DTO\SpGetPeriodStatisticData_DTO.cs" />
+    <Compile Include="Entity\DTO\TelemehanicaConnectedSystem_DTO.cs" />
+    <Compile Include="Entity\DTO\TelemehanicaLevels_DTO.cs" />
+    <Compile Include="Entity\DTO\TelemehanicaReportData_DTO.cs" />
+    <Compile Include="Entity\DTO\TelemehanicaTypes_DTO.cs" />
+    <Compile Include="Entity\DTO\ZAR_NSI_WEB_DTO.cs" />
+    <Compile Include="Entity\DTO\ZAR_STATES_ALL_DTO.cs" />
+    <Compile Include="Entity\Events_history.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsKC_2_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsKC_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsLPU_2_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsLPU_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsManualTags1_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsManualTags_0ld_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\get_Asodu_intervalsManualTags_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetAsduEsg1Period_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetAsduEsg1_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetAsduEsgLPUPeriod_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetAsduEsgLPU_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetDoGroupKcList_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetObjTypeList_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetParamAsduEsg_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetPeriodChartData_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetPeriodStatisticData_old_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetPeriodStatisticData_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetTagTypeList_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetTelemehanicaConnectSystemData_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetTelemehanicaConnectSystemGpaDataByKod_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetTelemehanicaConnectSystemGpaData_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\hp_GetTelemehanicaConnectSystemKcData_Result.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\IasInfo.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Interval_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\IusTags.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KC_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KS_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LPU_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\DislpayNSI.cs" />
+    <Compile Include="Entity\Model\KcSauModel.cs" />
+    <Compile Include="Entity\Model\SpGetLiveStatisticData.cs" />
+    <Compile Include="Entity\Model\SpGetLiveTagList.cs" />
+    <Compile Include="Entity\Model\SpGetPeriodTagList.cs" />
+    <Compile Include="Entity\Model\SpGetTelemehanicaReportData.cs" />
+    <Compile Include="Entity\Model\ZAR_STATES_REPORT.cs" />
+    <Compile Include="Entity\Quality_types.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SauType_nsi.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Telemehanica_levels.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Telemehanica_types.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\User.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_ASDU_ESG_LPU.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_paramASDU_ESG.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_SessionList.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\v_SessionList_old.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WEB_REPORTS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WEB_REPORTS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WEB_REPORTS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\WEB_REPORTS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WEB_REPORTS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ZAR_NSI.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ZAR_NSI_WEB.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ZAR_STATES_ALL.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Справочник_IUSTags.cs">
+      <DependentUpon>WEB_REPORTS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelReports\AutoSystemExcelReports.cs" />
+    <Compile Include="ExcelReports\CranesExcelReports.cs" />
+    <Compile Include="ExcelReports\FullDataExcelReports.cs" />
+    <Compile Include="ExcelReports\MasduExcelReports.cs" />
+    <Compile Include="ExcelReports\TagListExcelReport.cs" />
+    <Compile Include="ExcelReports\WSPControlExcelReports.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AutoSystemService.cs" />
+    <Compile Include="Services\CranesService.cs" />
+    <Compile Include="Services\FullDataControlService.cs" />
+    <Compile Include="Services\MasduService.cs" />
+    <Compile Include="Services\ParamListService.cs" />
+    <Compile Include="Services\TagListService.cs" />
+    <Compile Include="Services\WSPControlService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Entity\WEB_REPORTS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WEB_REPORTS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\WEB_REPORTS.edmx.diagram">
+      <DependentUpon>WEB_REPORTS.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\WEB_REPORTS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WEB_REPORTS.edmx</DependentUpon>
+      <LastGenOutput>WEB_REPORTS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\WEB_REPORTS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WEB_REPORTS.edmx</DependentUpon>
+      <LastGenOutput>WEB_REPORTS.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
